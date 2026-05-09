@@ -3,10 +3,11 @@
 [ext_resource type="Texture2D" uid="uid://c78dthm76v4xg" path="res://assets/kenny_tiny_dungeon/tilemap_packed.png" id="1_2sov6"]
 [ext_resource type="Texture2D" uid="uid://cfcnhdowbddu4" path="res://assets/kenny_tiny_town/tilemap_packed.png" id="2_hvr57"]
 [ext_resource type="Script" uid="uid://dmuo272ygo7bv" path="res://scripts/house_manager.gd" id="3_x2dom"]
-[ext_resource type="Texture2D" uid="uid://drtgrp0cdpke3" path="res://resources/house_indicator.tres" id="4_k1oaq"]
-[ext_resource type="Script" uid="uid://1f3su4hclkcv" path="res://scripts/house.gd" id="5_h2jsw"]
+[ext_resource type="PackedScene" uid="uid://qw6560puwaur" path="res://house.tscn" id="4_kagfw"]
 [ext_resource type="Script" uid="uid://dtuqpbyc25eif" path="res://npc_manager.gd" id="6_k1oaq"]
 [ext_resource type="PackedScene" uid="uid://cbhk3tjl0jyai" path="res://ui.tscn" id="7_h2jsw"]
+[ext_resource type="PackedScene" uid="uid://bocboyufbwtnl" path="res://npc.tscn" id="7_kagfw"]
+[ext_resource type="Texture2D" uid="uid://dxgydqfc64dhf" path="res://resources/blacksmith.tres" id="8_pt8fy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tyng3"]
 texture = ExtResource("1_2sov6")
@@ -304,15 +305,14 @@ tile_set = SubResource("TileSet_oca33")
 [node name="house_manager" type="Node2D" parent="." unique_id=1684760897]
 script = ExtResource("3_x2dom")
 
-[node name="house" type="Sprite2D" parent="house_manager" unique_id=310663080]
-modulate = Color(0, 1, 1, 0.63529414)
-visibility_layer = 16
-z_index = 10
+[node name="house" parent="house_manager" unique_id=1562481128 instance=ExtResource("4_kagfw")]
 position = Vector2(232, 328)
-texture = ExtResource("4_k1oaq")
-script = ExtResource("5_h2jsw")
 
 [node name="npc_manager" type="Node2D" parent="." unique_id=1193108980]
 script = ExtResource("6_k1oaq")
+
+[node name="npc" parent="npc_manager" unique_id=1227392443 instance=ExtResource("7_kagfw")]
+position = Vector2(232, 344)
+npc_visual = ExtResource("8_pt8fy")
 
 [node name="ui" parent="." unique_id=1997515593 instance=ExtResource("7_h2jsw")]

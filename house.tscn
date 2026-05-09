@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://qw6560puwaur"]
+
+[ext_resource type="Texture2D" uid="uid://drtgrp0cdpke3" path="res://resources/house_indicator.tres" id="1_metfq"]
+[ext_resource type="Script" uid="uid://1f3su4hclkcv" path="res://scripts/house.gd" id="2_6syyc"]
+
+[node name="house" type="Sprite2D" unique_id=1562481128]
+modulate = Color(0, 1, 1, 0.63529414)
+visibility_layer = 16
+z_index = 10
+texture = ExtResource("1_metfq")
+script = ExtResource("2_6syyc")
