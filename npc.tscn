@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bocboyufbwtnl"]
+
+[ext_resource type="Script" uid="uid://bnux5no68v8bu" path="res://npc.gd" id="1_xxcha"]
+[ext_resource type="Texture2D" uid="uid://c78dthm76v4xg" path="res://assets/kenny_tiny_dungeon/tilemap_packed.png" id="2_kh24r"]
+
+[node name="npc" type="CharacterBody2D" unique_id=1227392443]
+motion_mode = 1
+slide_on_ceiling = false
+script = ExtResource("1_xxcha")
+
+[node name="npc_sprite" type="Sprite2D" parent="." unique_id=651515443]
+unique_name_in_owner = true
+texture = ExtResource("2_kh24r")
+region_enabled = true
+region_rect = Rect2(16, 112, 16, 16)
+
+[node name="agent" type="NavigationAgent2D" parent="." unique_id=1316386641]
+unique_name_in_owner = true
