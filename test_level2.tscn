@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bocboyufbwtnl" path="res://npc.tscn" id="7_kagfw"]
 [ext_resource type="Resource" uid="uid://bdj13kpdoxiho" path="res://resources/schedules/blacksmith_schedule.tres" id="8_74v4g"]
 [ext_resource type="Texture2D" uid="uid://dxgydqfc64dhf" path="res://resources/blacksmith.tres" id="8_pt8fy"]
+[ext_resource type="PackedScene" uid="uid://gw17p6730hrx" path="res://resources/schedules/player.tscn" id="10_74v4g"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_c417q"]
 vertices = PackedVector2Array(121, 457, 119, 457, 119, 455, 121, 455, 521, 457, 519, 457, 519, 455, 521, 455, 501, 449, 135, 449, 135, 447, 501, 447, 117, 433, 91, 433, 91, 415, 117, 415, 549, 433, 523, 433, 523, 415, 549, 415, 453, 225, 363, 225, 363, 191, 453, 191, 101, 393, 91, 393, 91, 87, 101, 87, 549, 393, 539, 393, 539, 87, 549, 87, 121, 73, 119, 73, 119, 71, 121, 71, 521, 73, 519, 73, 519, 71, 521, 71, 505, 65, 135, 65, 135, 63, 505, 63, 117, 49, 91, 49, 91, 31, 117, 31, 549, 49, 523, 49, 523, 31, 549, 31, 567, 455, 1145, 7, 1145, 633, 551, 503, 567, 73, 551, 73, 551, 71, 567, 71, 567, 9, 7, 7, 505, 9, 505, 41, 135, 41, 135, 9, 73, 9, 7, 633, 73, 71, 89, 71, 89, 73, 73, 73, 73, 455, 89, 455, 89, 503, 311, 503, 311, 471, 329, 471, 329, 503, 551, 455, 521, 119, 521, 393, 519, 343, 519, 281, 457, 281, 215, 247, 281, 247, 505, 393, 263, 343, 263, 281, 457, 343, 471, 247, 471, 169, 345, 169, 345, 247, 343, 247, 343, 137, 311, 247, 311, 231, 313, 231, 313, 247, 167, 247, 167, 231, 169, 231, 169, 247, 487, 343, 487, 327, 489, 327, 489, 343, 231, 343, 231, 327, 233, 327, 233, 343, 505, 425, 135, 425, 185, 343, 135, 393, 137, 247, 119, 393, 119, 119, 137, 185, 281, 137, 185, 281, 215, 185)
@@ -581,3 +582,6 @@ npc_visual = ExtResource("8_pt8fy")
 schedule = ExtResource("8_74v4g")
 
 [node name="ui" parent="." unique_id=1997515593 instance=ExtResource("7_h2jsw")]
+
+[node name="player" parent="." unique_id=510662281 instance=ExtResource("10_74v4g")]
+position = Vector2(312, 272)

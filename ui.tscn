@@ -13,10 +13,10 @@ content_margin_top = 0.0
 content_margin_right = 0.0
 content_margin_bottom = 0.0
 bg_color = Color(0.1, 0.1, 0.1, 0.6)
-border_width_left = 6
-border_width_top = 6
-border_width_right = 6
-border_width_bottom = 6
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
 corner_radius_top_left = 3
 corner_radius_top_right = 3
 corner_radius_bottom_right = 3
@@ -26,7 +26,6 @@ corner_detail = 5
 [node name="ui" type="CanvasLayer" unique_id=1997515593]
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=509631000]
-custom_minimum_size = Vector2(0, 100)
 anchors_preset = 10
 anchor_right = 1.0
 grow_horizontal = 2
@@ -34,18 +33,19 @@ alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer" unique_id=1836108272]
 layout_mode = 2
+theme_override_constants/separation = 1
 
 [node name="gold" type="PanelContainer" parent="HBoxContainer/HBoxContainer" unique_id=357062580]
-custom_minimum_size = Vector2(270, 0)
+custom_minimum_size = Vector2(68, 0)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_fyqef")
 
 [node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/HBoxContainer/gold" unique_id=1495749994]
 layout_mode = 2
-theme_override_constants/margin_left = 10
+theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 8
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/HBoxContainer/gold/MarginContainer" unique_id=630104230]
 layout_mode = 2
@@ -58,7 +58,7 @@ expand_mode = 3
 
 [node name="amount" type="RichTextLabel" parent="HBoxContainer/HBoxContainer/gold/MarginContainer/HBoxContainer" unique_id=816850211]
 layout_mode = 2
-theme_override_font_sizes/normal_font_size = 64
+theme_override_font_sizes/normal_font_size = 12
 text = "5"
 fit_content = true
 autowrap_mode = 0
@@ -66,16 +66,16 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="food" type="PanelContainer" parent="HBoxContainer/HBoxContainer" unique_id=1886172345]
-custom_minimum_size = Vector2(270, 0)
+custom_minimum_size = Vector2(68, 0)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_fyqef")
 
 [node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/HBoxContainer/food" unique_id=1133725075]
 layout_mode = 2
-theme_override_constants/margin_left = 10
+theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 8
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/HBoxContainer/food/MarginContainer" unique_id=684943138]
 layout_mode = 2
@@ -88,7 +88,7 @@ expand_mode = 3
 
 [node name="amount" type="RichTextLabel" parent="HBoxContainer/HBoxContainer/food/MarginContainer/HBoxContainer" unique_id=1171841936]
 layout_mode = 2
-theme_override_font_sizes/normal_font_size = 64
+theme_override_font_sizes/normal_font_size = 12
 text = "5"
 fit_content = true
 autowrap_mode = 0
@@ -96,16 +96,16 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="happiness" type="PanelContainer" parent="HBoxContainer/HBoxContainer" unique_id=550905994]
-custom_minimum_size = Vector2(270, 0)
+custom_minimum_size = Vector2(68, 0)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_fyqef")
 
 [node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/HBoxContainer/happiness" unique_id=1449255131]
 layout_mode = 2
-theme_override_constants/margin_left = 10
+theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 8
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/HBoxContainer/happiness/MarginContainer" unique_id=1426725776]
 layout_mode = 2
@@ -118,7 +118,7 @@ expand_mode = 3
 
 [node name="amount" type="RichTextLabel" parent="HBoxContainer/HBoxContainer/happiness/MarginContainer/HBoxContainer" unique_id=16202480]
 layout_mode = 2
-theme_override_font_sizes/normal_font_size = 64
+theme_override_font_sizes/normal_font_size = 12
 text = "5"
 fit_content = true
 autowrap_mode = 0
@@ -126,16 +126,16 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="wood" type="PanelContainer" parent="HBoxContainer/HBoxContainer" unique_id=1232652233]
-custom_minimum_size = Vector2(270, 0)
+custom_minimum_size = Vector2(68, 0)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_fyqef")
 
 [node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/HBoxContainer/wood" unique_id=1719922067]
 layout_mode = 2
-theme_override_constants/margin_left = 10
+theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 8
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/HBoxContainer/wood/MarginContainer" unique_id=1485684843]
 layout_mode = 2
@@ -148,7 +148,7 @@ expand_mode = 3
 
 [node name="amount" type="RichTextLabel" parent="HBoxContainer/HBoxContainer/wood/MarginContainer/HBoxContainer" unique_id=1184863202]
 layout_mode = 2
-theme_override_font_sizes/normal_font_size = 64
+theme_override_font_sizes/normal_font_size = 12
 text = "5"
 fit_content = true
 autowrap_mode = 0
@@ -156,16 +156,16 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="potions" type="PanelContainer" parent="HBoxContainer/HBoxContainer" unique_id=1952858771]
-custom_minimum_size = Vector2(270, 0)
+custom_minimum_size = Vector2(68, 0)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_fyqef")
 
 [node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/HBoxContainer/potions" unique_id=880458224]
 layout_mode = 2
-theme_override_constants/margin_left = 10
+theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 8
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/HBoxContainer/potions/MarginContainer" unique_id=711238663]
 layout_mode = 2
@@ -178,7 +178,7 @@ expand_mode = 3
 
 [node name="amount" type="RichTextLabel" parent="HBoxContainer/HBoxContainer/potions/MarginContainer/HBoxContainer" unique_id=124167737]
 layout_mode = 2
-theme_override_font_sizes/normal_font_size = 64
+theme_override_font_sizes/normal_font_size = 12
 text = "5"
 fit_content = true
 autowrap_mode = 0
@@ -186,16 +186,16 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="tools" type="PanelContainer" parent="HBoxContainer/HBoxContainer" unique_id=264108346]
-custom_minimum_size = Vector2(270, 0)
+custom_minimum_size = Vector2(68, 0)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_fyqef")
 
 [node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/HBoxContainer/tools" unique_id=752034305]
 layout_mode = 2
-theme_override_constants/margin_left = 10
+theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 8
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/HBoxContainer/tools/MarginContainer" unique_id=992782529]
 layout_mode = 2
@@ -208,7 +208,7 @@ expand_mode = 3
 
 [node name="amount" type="RichTextLabel" parent="HBoxContainer/HBoxContainer/tools/MarginContainer/HBoxContainer" unique_id=1604306206]
 layout_mode = 2
-theme_override_font_sizes/normal_font_size = 64
+theme_override_font_sizes/normal_font_size = 12
 text = "5"
 fit_content = true
 autowrap_mode = 0
