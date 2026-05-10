@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://dtuqpbyc25eif" path="res://npc_manager.gd" id="6_k1oaq"]
 [ext_resource type="PackedScene" uid="uid://cbhk3tjl0jyai" path="res://ui.tscn" id="7_h2jsw"]
 [ext_resource type="PackedScene" uid="uid://bocboyufbwtnl" path="res://npc.tscn" id="7_kagfw"]
+[ext_resource type="Resource" uid="uid://bdj13kpdoxiho" path="res://resources/schedules/blacksmith_schedule.tres" id="8_74v4g"]
 [ext_resource type="Texture2D" uid="uid://dxgydqfc64dhf" path="res://resources/blacksmith.tres" id="8_pt8fy"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_c417q"]
@@ -577,5 +578,6 @@ script = ExtResource("6_k1oaq")
 [node name="npc" parent="npc_manager" unique_id=1227392443 instance=ExtResource("7_kagfw")]
 position = Vector2(232, 344)
 npc_visual = ExtResource("8_pt8fy")
+schedule = ExtResource("8_74v4g")
 
 [node name="ui" parent="." unique_id=1997515593 instance=ExtResource("7_h2jsw")]

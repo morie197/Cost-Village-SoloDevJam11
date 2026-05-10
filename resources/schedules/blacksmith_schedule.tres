@@ -1,0 +1,43 @@
+[gd_resource type="Resource" script_class="Schedule" format=3 uid="uid://bdj13kpdoxiho"]
+
+[ext_resource type="Script" uid="uid://ulsi2ato48is" path="res://scripts/schedule.gd" id="1_1kjqr"]
+
+[resource]
+script = ExtResource("1_1kjqr")
+morning_routine_1 = Dictionary[int, float]({
+2: 100.0
+})
+morning_routine_2 = Dictionary[int, float]({
+0: 50.0,
+2: 50.0
+})
+day_routine_1 = Dictionary[int, float]({
+0: 40.0,
+1: 60.0
+})
+day_routine_2 = Dictionary[int, float]({
+0: 10.0,
+1: 90.0
+})
+day_routine_3 = Dictionary[int, float]({
+1: 100.0
+})
+day_routine_4 = Dictionary[int, float]({
+1: 100.0
+})
+day_routine_5 = Dictionary[int, float]({
+0: 20.0,
+1: 80.0
+})
+night_routine_1 = Dictionary[int, float]({
+0: 10.0,
+1: 40.0,
+2: 50.0
+})
+night_routine_2 = Dictionary[int, float]({
+2: 100.0
+})
+night_routine_3 = Dictionary[int, float]({
+2: 100.0
+})
+metadata/_custom_type_script = "uid://ulsi2ato48is"
