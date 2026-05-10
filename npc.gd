@@ -8,11 +8,14 @@ class_name NPC
 
 @export var npc_visual: AtlasTexture
 
-@export var speed = 20
+@export var speed: float = 50
 
 @export var schedule: Schedule
 
+@export var npc_home_name: String = "default"
+
 var current_state: GameManager.npc_possible_states = GameManager.npc_possible_states.IDLE
+var current_activity: GameManager.npc_possible_activities = GameManager.npc_possible_activities.WANDERING
 
 var state_time: float = 0
 
@@ -21,13 +24,28 @@ var update_rate: int = 30
 
 var update_rate_seconds: float = 0
 
-var target_coords: Vector2 = Vector2.ZERO
-var target_object: Node2D = null
+var target_coords: Vector2 = Vector2.ZERO :
+	set(new_pos):
+		if target_coords != new_pos:
+			target_coords = new_pos
+		if new_pos != Vector2.ZERO:
+			agent.target_position = new_pos
+	
+var target_object: Place = null :
+	set(new_object):
+		if target_object != new_object:
+			target_object = new_object
+		if new_object != null:
+			target_coords = new_object.location
 
-var target_achieve_distance: float = 5
+#var target_achieve_distance: float = 5
 var wander_distance: float = 30
 
-var idle_time: float = 5
+var idle_time: float = 2
+
+var possible_activities: Dictionary
+
+var current_place: Place = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -38,10 +56,12 @@ func _ready():
 	update_rate_seconds = 1.0 / update_rate_frames
 	accumulator = randf_range(0, update_rate_seconds)
 
+	GameManager.time_change.connect(_time_changed)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	_target_checks()
+	pass
+	#_target_checks()
 
 func _physics_process(delta):
 	accumulator += delta
@@ -50,6 +70,60 @@ func _physics_process(delta):
 		accumulator = 0
 		_update_npc()
 	_move()
+	
+func _time_changed(new_time: int):
+	possible_activities = GameManager.get_current_activities(schedule)
+	var old_activity = current_activity
+	current_activity = _choose_new_activity()
+	if old_activity != current_activity:
+		_update_state_based_on_activity()
+	
+func _choose_new_activity() -> GameManager.npc_possible_activities:
+	var cumulative_chance: int = 0
+	for chance in possible_activities.values():
+		cumulative_chance += chance
+	var random_number: int = randi_range(1, cumulative_chance)
+	var cumulative_sum: int = 0
+	for activity in possible_activities:
+		cumulative_sum += possible_activities[activity]
+		if random_number <= cumulative_sum:
+			return activity as GameManager.npc_possible_activities
+			
+	print("activity randomization failed!")
+	print(cumulative_chance, random_number, cumulative_sum)
+	return possible_activities[possible_activities.keys()[0]]
+		
+func _update_state_based_on_activity():
+	print("Chose activity: " + str(current_activity))
+	match current_activity:
+		GameManager.npc_possible_activities.WANDERING:
+			_exit_state()
+			_enter_state(GameManager.npc_possible_states.WANDER)
+		GameManager.npc_possible_activities.WORKING:
+			if is_home():
+				return
+			_exit_state()
+			_enter_state(GameManager.npc_possible_states.GOING_TO)
+			if not GameManager.house_manager.check_for_house_name(npc_home_name):
+				print("no home with name: " + npc_home_name + "!")
+			target_object = GameManager.house_manager.houses[npc_home_name]
+		GameManager.npc_possible_activities.INSIDE:
+			if is_home():
+				return
+			_exit_state()
+			_enter_state(GameManager.npc_possible_states.GOING_TO)
+			if not GameManager.house_manager.check_for_house_name(npc_home_name):
+				print("no home with name: " + npc_home_name + "!")
+			target_object = GameManager.house_manager.houses[npc_home_name]
+			
+	
+func is_home() -> bool:
+	if current_state == GameManager.npc_possible_states.INSIDE:
+		if current_place is House:
+			if current_place.house_name == npc_home_name:
+				return true
+				
+	return false
 	
 func _target_checks() -> bool:
 	if target_coords != Vector2.ZERO:
@@ -60,6 +134,7 @@ func _target_checks() -> bool:
 	return false
 	
 func _update_npc():
+	var reached_target = _target_checks()
 	match current_state:
 		GameManager.npc_possible_states.IDLE:
 			if state_time > idle_time:
@@ -67,10 +142,27 @@ func _update_npc():
 					_exit_state()
 				elif state_time > idle_time * 2:
 					_exit_state()
+				else:
+					return
+					
+				if current_activity == GameManager.npc_possible_activities.WANDERING:
+					_enter_state(GameManager.npc_possible_states.WANDER)
 		GameManager.npc_possible_states.WANDER:
-			pass
+			if reached_target:
+				_exit_state()
+				_enter_state(GameManager.npc_possible_states.IDLE)
 		GameManager.npc_possible_states.GOING_TO:
-			pass
+			if target_object != null:
+				if reached_target:
+					current_place = target_object
+					if target_object is House:
+						var target_house: House = target_object
+						if GameManager.house_manager.enter_house(target_house.house_name):
+							visible = false
+							_exit_state()
+							_enter_state(GameManager.npc_possible_states.INSIDE)
+					target_object = null
+					target_coords = Vector2.ZERO
 		GameManager.npc_possible_states.INSIDE:
 			pass
 		GameManager.npc_possible_states.FIGHTING:
@@ -79,16 +171,30 @@ func _update_npc():
 func _enter_state(state: GameManager.npc_possible_states):
 	if current_state == state:
 		return
+	if state != GameManager.npc_possible_states.INSIDE:
+		if current_place is House:
+			var target_house: House = current_place
+			if GameManager.house_manager.exit_house(target_house.house_name):
+				visible = true
+			if state == GameManager.npc_possible_states.WANDER:
+				current_state = state
+				target_coords = global_position + Vector2.DOWN * wander_distance
+				current_place = null
+				state_time = 0
+				return
+		current_place = null
+			
+	current_state = state
 	state_time = 0
-	match state:
+	match current_state:
 		GameManager.npc_possible_states.IDLE:
 			pass
 		GameManager.npc_possible_states.WANDER:
+			print("wandernew")
 			var navmap = get_world_2d().get_navigation_map()
 			var wander_amount: Vector2 = (Vector2(randf_range(-1, 1), randf_range(-1, 1)) * wander_distance)
 			var potential_target: Vector2 = global_position + wander_amount
-			agent.target_position = NavigationServer2D.map_get_closest_point(navmap, global_position + potential_target)
-			target_coords = agent.target_position
+			target_coords = NavigationServer2D.map_get_closest_point(navmap, potential_target)
 		GameManager.npc_possible_states.GOING_TO:
 			pass
 		GameManager.npc_possible_states.INSIDE:
@@ -110,6 +216,8 @@ func _exit_state():
 			pass
 	
 func _move():
+	if agent.is_navigation_finished():
+		return
 	var next_pos = agent.get_next_path_position()
 	var moveVector = (next_pos - global_position).normalized()
 	velocity = moveVector * speed

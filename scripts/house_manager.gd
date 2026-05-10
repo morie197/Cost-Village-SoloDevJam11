@@ -38,7 +38,7 @@ func check_for_house_name(house_name: String) -> bool:
 		return false
 	
 	var house = houses[house_name]
-	if not houses.has(house):
+	if not house_occupants.has(house):
 		print("house doesn't exist: " + house_name)
 		return false
 		
