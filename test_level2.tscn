@@ -308,6 +308,12 @@ script = ExtResource("3_x2dom")
 [node name="house" parent="house_manager" unique_id=1562481128 instance=ExtResource("4_kagfw")]
 position = Vector2(232, 328)
 
+[node name="house2" parent="house_manager" unique_id=239120992 instance=ExtResource("4_kagfw")]
+position = Vector2(168, 232)
+
+[node name="house3" parent="house_manager" unique_id=584160477 instance=ExtResource("4_kagfw")]
+position = Vector2(488, 328)
+
 [node name="npc_manager" type="Node2D" parent="." unique_id=1193108980]
 script = ExtResource("6_k1oaq")
 

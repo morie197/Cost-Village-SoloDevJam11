@@ -17,6 +17,9 @@ var update_rate: int = 30
 
 var update_rate_seconds: float = 0
 
+var target_coords: Vector2 = Vector2.ZERO
+var target_object: Node2D = null
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if npc_visual != null:
