@@ -36,19 +36,16 @@ func _move(_delta):
 	if move_input == Vector2.ZERO:
 		return
 		
-	#print(center_position)
-		
 	var tween = create_tween()
 	var move_amount: Vector2 = move_input * (speed / camera.zoom.x) * _delta
 	var move_pos: Vector2 = global_position + move_amount
 	var offset_from_center: Vector2 = move_pos - center_position
 	
-#	print(offset_from_center)
+	offset_from_center  = Vector2(clampf(offset_from_center.x, -max_distance_from_center, max_distance_from_center), clampf(offset_from_center.y, -max_distance_from_center, max_distance_from_center))
 	
-	if offset_from_center.length() > max_distance_from_center:
-		offset_from_center = offset_from_center.limit_length(max_distance_from_center)
-	#global_position = conscious_pos + offset_from_conscious
-	#else:
+	#if offset_from_center.length() > max_distance_from_center:
+	#	offset_from_center = offset_from_center.limit_length(max_distance_from_center)
+	
 	tween.tween_property(self, "global_position", center_position + offset_from_center, _delta)
 		
 func _zoom(_delta):
