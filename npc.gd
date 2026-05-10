@@ -14,10 +14,21 @@ class_name NPC
 
 @export var npc_home_name: String = "default"
 
+@onready var mouse_area = %mouse_area
+
+const NPC_UI = preload("uid://bxki08on743mw")
+
+var ui_panel: NPCUI = null
+
+var time_until_popup_disappears: float = 2
+var popup_timer: float = 0
+
 var current_state: GameManager.npc_possible_states = GameManager.npc_possible_states.IDLE
 var current_activity: GameManager.npc_possible_activities = GameManager.npc_possible_activities.WANDERING
 
 var state_time: float = 0
+
+var happiness: int = 5
 
 var accumulator: float = 0
 var update_rate: int = 30
@@ -47,6 +58,8 @@ var possible_activities: Dictionary
 
 var current_place: Place = null
 
+var mouse_inside: bool = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if npc_visual != null:
@@ -57,13 +70,25 @@ func _ready():
 	accumulator = randf_range(0, update_rate_seconds)
 
 	GameManager.time_change.connect(_time_changed)
+	mouse_area.input_event.connect(_clicked)
+	mouse_area.mouse_entered.connect(_mouse_etr)
+	mouse_area.mouse_exited.connect(_mouse_ext)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
-	#_target_checks()
+	if GameManager.paused:
+		return
+	if ui_panel != null:
+		popup_timer += delta
+		if not mouse_inside:
+			if popup_timer >= time_until_popup_disappears:
+				ui_panel.queue_free()
+				ui_panel = null
+				popup_timer = 0
 
 func _physics_process(delta):
+	if GameManager.paused:
+		return
 	accumulator += delta
 	state_time += delta
 	if accumulator >= update_rate_seconds:
@@ -78,6 +103,20 @@ func _time_changed(new_time: int):
 	if old_activity != current_activity:
 		_update_state_based_on_activity()
 	
+func _clicked(viewport, event, shape_index):
+	if event is InputEventMouseButton and event.pressed:
+		if event.button_index == MOUSE_BUTTON_LEFT:
+			if ui_panel == null:
+				ui_panel = NPC_UI.instantiate()
+				add_child(ui_panel)
+				ui_panel.set_values(happiness, npc_name)
+	
+func _mouse_etr():
+	mouse_inside = true
+	
+func _mouse_ext():
+	mouse_inside = false
+
 func _choose_new_activity() -> GameManager.npc_possible_activities:
 	var cumulative_chance: int = 0
 	for chance in possible_activities.values():

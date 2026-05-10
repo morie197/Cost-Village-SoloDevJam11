@@ -6,9 +6,13 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xxcha"]
 size = Vector2(5, 5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kh24r"]
+
 [node name="npc" type="CharacterBody2D" unique_id=1227392443]
+collision_layer = 0
 motion_mode = 1
 slide_on_ceiling = false
+wall_min_slide_angle = 0.0
 script = ExtResource("1_xxcha")
 
 [node name="npc_sprite" type="Sprite2D" parent="." unique_id=651515443]
@@ -24,3 +28,14 @@ debug_enabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1799440383]
 shape = SubResource("RectangleShape2D_xxcha")
+
+[node name="mouse_area" type="Area2D" parent="." unique_id=798195303]
+unique_name_in_owner = true
+z_index = 10
+collision_layer = 128
+collision_mask = 0
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="mouse_area" unique_id=1380445243]
+shape = SubResource("RectangleShape2D_kh24r")

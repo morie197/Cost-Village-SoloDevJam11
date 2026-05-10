@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://bxki08on743mw"]
+
+[ext_resource type="Script" uid="uid://cyqotaadknyg6" path="res://resources/schedules/npc_ui.gd" id="1_nvi8e"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0ecq7"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nvi8e"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.072842695, 0.072842605, 0.072842635, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.59, 0.59, 0.59, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 1
+
+[node name="PanelContainer" type="PanelContainer" unique_id=1305362635]
+z_index = 20
+offset_right = 66.0
+offset_bottom = 44.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0ecq7")
+script = ExtResource("1_nvi8e")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=2075871291]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1798059524]
+layout_mode = 2
+
+[node name="npc_name" type="RichTextLabel" parent="MarginContainer/VBoxContainer" unique_id=1568614638]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 8
+text = "Blacksmith"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer" unique_id=1746116542]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_nvi8e")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/PanelContainer" unique_id=1040754031]
+layout_mode = 2
+
+[node name="happiness" type="RichTextLabel" parent="MarginContainer/VBoxContainer/PanelContainer/VBoxContainer" unique_id=652302048]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 8
+text = "Happiness: 4"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -15,7 +15,17 @@ var day_interval_length: float = 0
 
 var accumulated_time: float = 0
 
+var paused: bool = false
+
 signal time_change(new_time: int)
+
+func _unhandled_input(event):
+	if Input.is_action_just_pressed("debug"):
+		if paused:
+			unpause()
+		else:
+			pause()
+		
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -24,6 +34,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if paused:
+		return
 	accumulated_time += delta
 	if accumulated_time >= day_interval_length:
 		accumulated_time -= day_interval_length
@@ -33,6 +45,14 @@ func _process(delta):
 			
 		#print(current_time)
 		time_change.emit(current_time)
+
+func pause():
+	print("paused")
+	paused = true
+
+func unpause():
+	print("unpaused")
+	paused = false
 
 func get_current_activities(schedule: Schedule) -> Dictionary:
 	var routines: Array = [schedule.morning_routine_1, schedule.morning_routine_2,
