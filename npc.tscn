@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bkcj2fb7b0d3d" path="res://resources/civilian.tres" id="2_xxcha"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xxcha"]
-size = Vector2(16, 16)
+size = Vector2(5, 5)
 
 [node name="npc" type="CharacterBody2D" unique_id=1227392443]
 motion_mode = 1
@@ -18,6 +18,9 @@ region_rect = Rect2(16, 112, 16, 16)
 
 [node name="agent" type="NavigationAgent2D" parent="." unique_id=1316386641]
 unique_name_in_owner = true
+path_desired_distance = 4.0
+target_desired_distance = 4.0
+debug_enabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1799440383]
 shape = SubResource("RectangleShape2D_xxcha")
