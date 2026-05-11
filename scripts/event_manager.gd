@@ -159,7 +159,7 @@ func get_event(trigger_npc: String) -> Array:
 		print("Not enough keys!")
 		return []
 	var event_key_name = event_keys[0][2]
-	var event_value = event.values()
+	var event_value = event.values()[0]
 	if planned_events.has(event_key_name):
 		print("already event: " + str(event_key_name) + " going on!")
 		return []
@@ -230,3 +230,45 @@ func apply_atributes(attributes: Dictionary):
 		else:
 			GameManager.change_item_value(key, amount)
 			
+func force_leftover_events(cause_npc: String, target_npcs: Array, event_data: Array):
+	var danger_level: String = event_data[0]
+	var cause_npc_profession: String = event_data[1]
+	var danger_name: String = event_data[2]
+	
+	var event = EventManager.events[danger_level][cause_npc_profession][danger_name]
+	
+	var cause_data = {"self" = cause_npc.capitalize()}
+	var description: String = event["description"].format(cause_data)
+	
+	var target_data = EventManager.get_raw_target_professions(event["targets"], target_npcs)
+		
+	var target_data_capital: Dictionary = {}
+		
+	for target_profession in target_data:
+		for target: String in target_npcs:
+			target_data_capital[target_profession] = target.capitalize()
+
+	for profession in target_data_capital:
+		var description_target_data: Dictionary = {profession: target_data_capital[profession]}
+		description = description.format(description_target_data)
+		
+	var attributes: Dictionary
+	
+	attributes = event["attributes"]
+	var new_attributes_keys: Dictionary = {}
+		
+	var self_format_data = {"self": cause_npc}
+	var target_format_data = get_raw_target_professions(event["targets"], target_npcs)
+		
+	for key in attributes:
+		var final_key: String = key
+		for profession in target_format_data:
+			var description_target_data: Dictionary = {profession: target_format_data[profession]}
+			final_key = final_key.format(self_format_data)
+			final_key = final_key.format(description_target_data)
+			
+		new_attributes_keys[final_key] = attributes[key]
+
+	EventManager.apply_atributes(new_attributes_keys)
+		
+	

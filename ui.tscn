@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cjamx63makgut" path="res://resources/potions.tres" id="5_ok7cu"]
 [ext_resource type="Texture2D" uid="uid://uw8opxi75t4w" path="res://resources/tools.tres" id="6_irxef"]
 [ext_resource type="Script" uid="uid://c1gp3oj3hmkel" path="res://event_popup.gd" id="7_y4yjw"]
+[ext_resource type="Script" uid="uid://deuh65qt68yae" path="res://day_visuals.gd" id="8_waa4j"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fyqef"]
 content_margin_left = 0.0
@@ -23,6 +24,13 @@ corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ok7cu"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0, 0, 0, 1)
 
 [node name="ui" type="CanvasLayer" unique_id=1997515593]
 script = ExtResource("1_waa4j")
@@ -201,6 +209,7 @@ vertical_alignment = 1
 
 [node name="event_popup" type="PanelContainer" parent="." unique_id=2036101300]
 unique_name_in_owner = true
+visible = false
 custom_minimum_size = Vector2(400, 250)
 anchors_preset = 8
 anchor_left = 0.5
@@ -244,3 +253,88 @@ fit_content = true
 unique_name_in_owner = true
 layout_mode = 2
 alignment = 1
+
+[node name="day_changed_panel" type="PanelContainer" parent="." unique_id=583275341]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ok7cu")
+
+[node name="days" type="HBoxContainer" parent="." unique_id=1847294843]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -30.0
+offset_top = -32.5
+offset_right = 286.0
+offset_bottom = 32.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("8_waa4j")
+
+[node name="day1" type="RichTextLabel" parent="days" unique_id=68251205]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 64
+text = "1"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="day2" type="RichTextLabel" parent="days" unique_id=730475527]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 64
+text = "2"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="day3" type="RichTextLabel" parent="days" unique_id=2080718006]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 64
+text = "3"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="day4" type="RichTextLabel" parent="days" unique_id=474217032]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 64
+text = "4"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="day5" type="RichTextLabel" parent="days" unique_id=435303189]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 64
+text = "5"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -11,7 +11,7 @@ const day_intervals: int = 10
 
 var day_length: float = 20
 var current_time: int = 1
-var time_padding: float = 2
+var time_padding: float = 5
 
 var day_interval_length: float = 0
 
@@ -19,19 +19,23 @@ var accumulated_time: float = 0
 
 var paused: bool = false
 
+var day: int = 1
+var final_day: int = 5
+
 var min_events_per_day: int = 5
 var max_events_per_day: int = 7
 
 var event_trigger_times: Dictionary = {}
 
-var gold: int = 0
+var gold: int = 200
 var food: int = 20
 var wood: int = 20
 var potions: int = 5
-var tools: int = 0
+var tools: int = 5
 
 signal time_change(new_time: int)
 signal values_changed
+signal new_day
 
 func _unhandled_input(event):
 	if Input.is_action_just_pressed("debug"):
@@ -56,7 +60,7 @@ func _process(delta):
 		accumulated_time -= day_interval_length
 		current_time += 1
 		if current_time == day_intervals + 1:
-			current_time = 1
+			end_day()
 			
 		#print(current_time)
 		time_change.emit(current_time)
@@ -68,6 +72,13 @@ func pause():
 func unpause():
 	print("unpaused")
 	paused = false
+	
+func end_day():
+	day += 1
+	new_day.emit()
+	pause()
+	current_time = 1
+	create_events()
 	
 func cause_event(event_data):
 	var event_data_keys: Array = event_data.keys()
@@ -124,7 +135,7 @@ func change_item_value(item_name: String, amount: int):
 			gold = clamp(gold + amount, 0, 9999)
 		"food":
 			food = clamp(food + amount, 0, 9999)
-		"potions":
+		"potion":
 			potions = clamp(potions + amount, 0, 9999)
 		"wood":
 			wood = clamp(wood + amount, 0, 9999)

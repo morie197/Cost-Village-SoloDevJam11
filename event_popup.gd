@@ -93,6 +93,7 @@ func option_choosed(option_chosen: int):
 		new_attributes_keys[final_key] = attributes[key]
 
 	EventManager.apply_atributes(new_attributes_keys)
+	EventManager.planned_events.erase(danger_name)
 	GameManager.unpause()
 	visible = false
 	for option in options_container.get_children():

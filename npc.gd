@@ -83,6 +83,8 @@ func _ready():
 	accumulator = randf_range(0, update_rate_seconds)
 
 	GameManager.time_change.connect(_time_changed)
+	GameManager.new_day.connect(_new_day)
+	
 	mouse_area.input_event.connect(_clicked)
 	mouse_area.mouse_entered.connect(_mouse_etr)
 	mouse_area.mouse_exited.connect(_mouse_ext)
@@ -109,6 +111,11 @@ func _physics_process(delta):
 		_update_npc()
 	_move()
 	
+func _new_day():
+	if current_event != []:
+		EventManager.force_leftover_events(unique_name, current_event_targets, current_event)
+		deal_with_event()
+	
 func _time_changed(new_time: int):
 	possible_activities = GameManager.get_current_activities(schedule)
 	var old_activity = current_activity
@@ -119,6 +126,10 @@ func _time_changed(new_time: int):
 		_update_state_based_on_activity()
 	
 func change_happiness(change_amount: int):
+	happiness += change_amount
+	
+	print("Happiness:" + str(happiness))
+	
 	var timer = Timer.new()
 	timer.wait_time = happy_sad_popup_timer
 	timer.timeout.connect(timer.queue_free)

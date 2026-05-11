@@ -6,6 +6,20 @@ var unique_npcs: Dictionary[String, NPC] = {}
 
 var npcs_with_no_event: Array[String] = []
 
+var job_production: Dictionary = {
+	"civilian": 1,
+	"blacksmith": 1,
+	"wizard": 1,
+	"lumberjack": 1
+}
+
+var gold_from_jobs: Dictionary = {
+	"civilian": 2,
+	"blacksmith": 10,
+	"wizard": 10,
+	"lumberjack": 10
+}
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	GameManager.npc_manager = self
@@ -34,6 +48,28 @@ func _ready():
 	npcs_with_no_event = unique_npcs.keys()
 	
 	GameManager.create_events()
+	
+func npc_create_items():
+	for job in npcs:
+		for npc in npcs[job]:
+			var npc_happiness = npc.happiness
+			match job:
+				"civilian":
+					GameManager.change_item_value("food", calculate_npc_final_production(job_production[job], npc_happiness))
+				"blacksmith":
+					GameManager.change_item_value("tool", calculate_npc_final_production(job_production[job], npc_happiness))
+				"wizard":
+					GameManager.change_item_value("potion", calculate_npc_final_production(job_production[job], npc_happiness))
+				"lumberjack":
+					GameManager.change_item_value("wood", calculate_npc_final_production(job_production[job], npc_happiness))
+					
+			GameManager.change_item_value("gold", calculate_npc_final_production(gold_from_jobs[job], npc_happiness))
+				
+	
+func calculate_npc_final_production(job_prod: int, happiness: int) -> int:
+	var output: int = 0
+	output = (happiness/5.0) * job_prod
+	return output
 	
 func choose_random_npc() -> String:
 	var possible_npcs: Array = npcs_with_no_event
