@@ -578,6 +578,15 @@ script = ExtResource("6_k1oaq")
 
 [node name="npc" parent="npc_manager" unique_id=1227392443 instance=ExtResource("7_kagfw")]
 position = Vector2(232, 344)
+schedule = ExtResource("8_74v4g")
+
+[node name="npc2" parent="npc_manager" unique_id=566128535 instance=ExtResource("7_kagfw")]
+position = Vector2(312, 248)
+schedule = ExtResource("8_74v4g")
+
+[node name="npc3" parent="npc_manager" unique_id=1773434878 instance=ExtResource("7_kagfw")]
+position = Vector2(168, 248)
+npc_name = "blacksmith"
 npc_visual = ExtResource("8_pt8fy")
 schedule = ExtResource("8_74v4g")
 

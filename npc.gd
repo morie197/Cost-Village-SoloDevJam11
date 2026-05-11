@@ -20,6 +20,8 @@ class_name NPC
 @onready var problem = %problem
 @onready var complaint = %complaint
 
+var unique_name: String = ""
+
 const NPC_UI = preload("uid://bxki08on743mw")
 
 var ui_panel: NPCUI = null

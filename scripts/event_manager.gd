@@ -21,9 +21,11 @@ var experienced_events: Dictionary = {
 	"critical": {}
 }
 
-func _unhandled_input(event):
-	if Input.is_action_just_pressed("debug"):
-		choose_random_event()
+var planned_events: Dictionary = {}
+
+#func _unhandled_input(event):
+	#if Input.is_action_just_pressed("debug"):
+		#trigger_event("blacksmith")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -55,6 +57,14 @@ func create_event_dictionary():
 			var parts: Array = clean_attribute.split(" ")
 			danger_attributes[parts[0]] = int(parts[1])
 			
+		var causes: Array = ["none"]
+		var targets: Array = ["none"]
+		var subjects = line[5].split(";")
+		if subjects.size() > 0:
+			causes = subjects[0].strip_edges().split(",")
+		if subjects.size() > 1:
+			targets = subjects[1].strip_edges().split(",")
+			
 		if not events.has(danger_level):
 			print("Unknown danger level: " + danger_level)
 		
@@ -65,17 +75,23 @@ func create_event_dictionary():
 		
 		if events[danger_level].has(danger_name):
 			if is_choice:
-				if not events[danger_level][danger_name].has("choices"):
-					events[danger_level][danger_name]["choices"] = {}
-				var choices_length: int = events[danger_level][danger_name]["choices"].size()
-				events[danger_level][danger_name]["choices"][choices_length] = danger_entry
+				for cause in causes:
+					if not events[danger_level][cause][danger_name].has("choices"):
+						events[danger_level][cause][danger_name]["choices"] = {}
+					var choices_length: int = events[danger_level][cause][danger_name]["choices"].size()
+					events[danger_level][cause][danger_name]["choices"][choices_length] = danger_entry
 			else:
 				print("Already danger with name: " + danger_name)
 		
 		else:
-			events[danger_level][danger_name] = danger_entry
+			danger_entry["causes"] = causes
+			danger_entry["targets"] = targets
+			for cause in causes:
+				if not events[danger_level].has(cause):
+					events[danger_level][cause] = {}
+				events[danger_level][cause][danger_name] = danger_entry
 
-func choose_random_event():
+func choose_random_event(trigger_npc: String) -> Dictionary:
 	var safety_level: String
 	var cumulative_chance: int = 0
 	for chance in event_chances.values():
@@ -90,28 +106,65 @@ func choose_random_event():
 	
 	if not events.has(safety_level):
 		print("No safety level with: " + safety_level)
-		return
+		return {}
 		
 	if events[safety_level].size() == 0:
 		print("Empty safety level: " + safety_level)
-		return
+		return {}
 		
+	if not events[safety_level].has(trigger_npc):
+		print("No trigger for npc with: " + trigger_npc)
+		if events[safety_level].has("anyone"):
+			trigger_npc = "anyone"
+		else:
+			print("No trigger for any npcs")
+	
 	var chosen_event
-		
-	var unique_events: Array = events[safety_level].keys().filter(func(event) : return not experienced_events[safety_level].has(event))
+	
+	var unique_events: Array = []
+	if experienced_events[safety_level].has(trigger_npc):
+		unique_events = events[safety_level][trigger_npc].keys().filter(func(event) : return not experienced_events[safety_level][trigger_npc].has(event))
+	else:
+		unique_events = events[safety_level][trigger_npc].keys()
 	
 	if unique_events.size() == 0:
 		print("no unique events")
-		chosen_event = events[safety_level].keys()[randi_range(0, events[safety_level].size() - 1)]
-		return
+		chosen_event = events[safety_level][trigger_npc].keys()[randi_range(0, events[safety_level][trigger_npc].size() - 1)]
+		
+	else:
+		var random_event_index: int = randi_range(0, unique_events.size() - 1)
+		chosen_event = unique_events[random_event_index]
+		if not experienced_events[safety_level].has(trigger_npc):
+			experienced_events[safety_level][trigger_npc] = {}
+		experienced_events[safety_level][trigger_npc][chosen_event] = 1
 	
-	var random_event_index: int = randi_range(0, unique_events.size() - 1)
-	chosen_event = unique_events[random_event_index]
-	experienced_events[safety_level][chosen_event] = 1
+	return {[safety_level, trigger_npc, chosen_event]: events[safety_level][trigger_npc][chosen_event]}
 	
-	print(chosen_event)
+func get_event(trigger_npc: String) -> Array:
+	var role: String = trigger_npc
+	if randi_range(0, 2) > 1:
+		role = "anyone"
 	
+	var event = choose_random_event(role)
+	if event == {}:
+		print("Not a valid event!")
+		return []
+	var event_keys = event.keys()
+	#print(event_keys[0])
+	if event_keys[0].size() < 3:
+		print("Not enough keys!")
+		return []
+	var event_key_name = event_keys[0][2]
+	var event_value = event.values()
+	if planned_events.has(event_key_name):
+		print("already event: " + str(event_key_name) + " going on!")
+		return []
 	
+	planned_events[event_key_name] = event_value
 	
-	
+	return event.keys()
+		
+func trigger_event(npc_cause: String, event: Array):
+	print("Cause: " + npc_cause)
+	print("Event data: " + str(event))
 	

@@ -1,4 +1,7 @@
-id,danger,text,is_choice,attributes
-distaste,safe,"{random} made a mean joke at {self} for the 5th time this week, and now {self} is upset at them.",FALSE,"{self},happiness -2"
-distaste,safe,Convince {random} to cut it out.,TRUE,"{self},happiness +1; gold -20"
-distaste,safe,Promise {random} a shiny new tool if they stop.,TRUE,"{random},happiness +2; tool -1"
+id,danger,text,is_choice,attributes,"targets (cause, target(s))"
+distaste,safe,"{random} made a mean joke at {self} for the 5th time this week, and now {self} is upset at them.",FALSE,"{self},happiness -2",anyone; anyone
+distaste,safe,Convince {random} to cut it out.,TRUE,"{self},happiness +1; gold -20",anyone; anyone
+distaste,safe,Promise {random} a shiny new tool if they stop.,TRUE,"{random},happiness +2; tool -1",anyone; anyone
+rude_blacksmith,safe,"{blacksmith} accidently dropped an iron hammer on {random}'s toe, prompting a fight.",FALSE,"{random},happiness -2",blacksmith; anyone
+rude_blacksmith,safe,Tell {blacksmith} to make iron slippers for all customers entering the shop.,TRUE,"{random},happiness +1; tool -2",blacksmith; anyone
+rude_blacksmith,safe,Enforce safety procedures stating all tools must be at ground level or 5 meters away from any customers.,TRUE,"{random},happiness +2; {blacksmith},happiness -2",blacksmith; anyone
