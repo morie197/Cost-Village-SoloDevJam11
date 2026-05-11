@@ -2,6 +2,9 @@
 
 [ext_resource type="Script" uid="uid://bnux5no68v8bu" path="res://npc.gd" id="1_xxcha"]
 [ext_resource type="Texture2D" uid="uid://bkcj2fb7b0d3d" path="res://resources/civilian.tres" id="2_xxcha"]
+[ext_resource type="Texture2D" uid="uid://bwstmprttpr8j" path="res://assets/Style 3/emote_exclamation.png" id="3_bc6q4"]
+[ext_resource type="Texture2D" uid="uid://by5d7a7lxlmry" path="res://assets/Style 3/emote_exclamations.png" id="4_mcvl2"]
+[ext_resource type="Texture2D" uid="uid://cjs25ovx51xjl" path="res://assets/Style 3/emote_faceAngry.png" id="5_bc6q4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xxcha"]
 size = Vector2(5, 5)
@@ -39,3 +42,39 @@ monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="mouse_area" unique_id=1380445243]
 shape = SubResource("RectangleShape2D_kh24r")
+
+[node name="critical" type="TextureRect" parent="." unique_id=533345302]
+unique_name_in_owner = true
+visible = false
+z_index = 10
+offset_left = -16.0
+offset_top = -32.0
+offset_right = 16.0
+offset_bottom = -8.0
+texture = ExtResource("3_bc6q4")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="problem" type="TextureRect" parent="." unique_id=110985953]
+unique_name_in_owner = true
+visible = false
+z_index = 10
+offset_left = -16.0
+offset_top = -32.0
+offset_right = 16.0
+offset_bottom = -8.0
+texture = ExtResource("4_mcvl2")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="complaint" type="TextureRect" parent="." unique_id=1813001992]
+unique_name_in_owner = true
+visible = false
+z_index = 10
+offset_left = -16.0
+offset_top = -32.0
+offset_right = 16.0
+offset_bottom = -8.0
+texture = ExtResource("5_bc6q4")
+expand_mode = 1
+stretch_mode = 5

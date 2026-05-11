@@ -1,0 +1,4 @@
+id,danger,text,is_choice,attributes
+distaste,safe,"{random} made a mean joke at {self} for the 5th time this week, and now {self} is upset at them.",FALSE,"{self},happiness -2"
+distaste,safe,Convince {random} to cut it out.,TRUE,"{self},happiness +1; gold -20"
+distaste,safe,Promise {random} a shiny new tool if they stop.,TRUE,"{random},happiness +2; tool -1"

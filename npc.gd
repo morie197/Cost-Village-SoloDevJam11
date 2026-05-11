@@ -16,6 +16,10 @@ class_name NPC
 
 @onready var mouse_area = %mouse_area
 
+@onready var critical = %critical
+@onready var problem = %problem
+@onready var complaint = %complaint
+
 const NPC_UI = preload("uid://bxki08on743mw")
 
 var ui_panel: NPCUI = null

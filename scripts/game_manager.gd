@@ -19,12 +19,12 @@ var paused: bool = false
 
 signal time_change(new_time: int)
 
-func _unhandled_input(event):
-	if Input.is_action_just_pressed("debug"):
-		if paused:
-			unpause()
-		else:
-			pause()
+#func _unhandled_input(event):
+	#if Input.is_action_just_pressed("debug"):
+		#if paused:
+			#unpause()
+		#else:
+			#pause()
 		
 
 # Called when the node enters the scene tree for the first time.
@@ -60,3 +60,4 @@ func get_current_activities(schedule: Schedule) -> Dictionary:
 	schedule.night_routine_1, schedule.night_routine_2, schedule.night_routine_3]
 	
 	return routines[current_time - 1]
+	

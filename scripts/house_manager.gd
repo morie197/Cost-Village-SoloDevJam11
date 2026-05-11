@@ -25,7 +25,7 @@ func _ready():
 				house_name += str(houses_seen[house.house_name])
 			houses[house_name] = house
 			
-	print(houses)
+	#print(houses)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
