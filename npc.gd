@@ -19,6 +19,8 @@ class_name NPC
 @onready var critical = %critical
 @onready var problem = %problem
 @onready var complaint = %complaint
+@onready var sad = %sad
+@onready var happy = %happy
 
 var unique_name: String = ""
 
@@ -59,6 +61,8 @@ var target_object: Place = null :
 var wander_distance: float = 30
 
 var idle_time: float = 2
+
+var happy_sad_popup_timer: float = 3
 
 var possible_activities: Dictionary
 
@@ -114,6 +118,19 @@ func _time_changed(new_time: int):
 	if old_activity != current_activity:
 		_update_state_based_on_activity()
 	
+func change_happiness(change_amount: int):
+	var timer = Timer.new()
+	timer.wait_time = happy_sad_popup_timer
+	timer.timeout.connect(timer.queue_free)
+	add_child(timer)
+	if change_amount < 0:
+		sad.visible = true
+		timer.timeout.connect(func(): sad.visible = false)
+	elif change_amount > 0:
+		happy.visible = true
+		timer.timeout.connect(func(): happy.visible = false)
+	timer.start()
+		
 func trigger_event(event_data):
 	_exit_state()
 	_enter_state(GameManager.npc_possible_states.WANDER)

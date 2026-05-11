@@ -24,7 +24,14 @@ var max_events_per_day: int = 7
 
 var event_trigger_times: Dictionary = {}
 
+var gold: int = 0
+var food: int = 20
+var wood: int = 20
+var potions: int = 5
+var tools: int = 0
+
 signal time_change(new_time: int)
+signal values_changed
 
 func _unhandled_input(event):
 	if Input.is_action_just_pressed("debug"):
@@ -34,7 +41,6 @@ func _unhandled_input(event):
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	day_interval_length = day_length / day_intervals
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -110,3 +116,19 @@ func get_current_activities(schedule: Schedule) -> Dictionary:
 	
 	return routines[current_time - 1]
 	
+func change_item_value(item_name: String, amount: int):
+	match item_name:
+		"tool":
+			tools = clamp(tools + amount, 0, 9999)
+		"gold":
+			gold = clamp(gold + amount, 0, 9999)
+		"food":
+			food = clamp(food + amount, 0, 9999)
+		"potions":
+			potions = clamp(potions + amount, 0, 9999)
+		"wood":
+			wood = clamp(wood + amount, 0, 9999)
+		_:
+			print("unkown item: " + item_name)
+			
+	values_changed.emit()

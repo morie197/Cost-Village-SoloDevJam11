@@ -72,3 +72,11 @@ func choose_npc_with_profession(profession: String) -> String:
 			return npc.unique_name
 	print("No npcs available with profession: " + profession)
 	return ""
+	
+func change_happiness(target_unique_name, change: int):
+	if not unique_npcs.has(target_unique_name):
+		print("No npc with the name: " + target_unique_name)
+		return
+	
+	var target = unique_npcs[target_unique_name]
+	target.change_happiness(change)

@@ -3,7 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://cudyrgkm4rksl" path="res://resources/gold.tres" id="1_fyqef"]
 [ext_resource type="Script" uid="uid://bhg8kxugo6q8x" path="res://ui_manager.gd" id="1_waa4j"]
 [ext_resource type="Texture2D" uid="uid://dabn83w6gj4s5" path="res://resources/food.tres" id="2_n5ude"]
-[ext_resource type="Texture2D" uid="uid://cjial6dot75tk" path="res://resources/happiness.tres" id="3_y4yjw"]
 [ext_resource type="Texture2D" uid="uid://dfikmr8evj6kv" path="res://resources/wood.tres" id="4_waa4j"]
 [ext_resource type="Texture2D" uid="uid://cjamx63makgut" path="res://resources/potions.tres" id="5_ok7cu"]
 [ext_resource type="Texture2D" uid="uid://uw8opxi75t4w" path="res://resources/tools.tres" id="6_irxef"]
@@ -66,7 +65,8 @@ layout_mode = 2
 texture = ExtResource("1_fyqef")
 expand_mode = 3
 
-[node name="amount" type="RichTextLabel" parent="HBoxContainer/HBoxContainer/gold/MarginContainer/HBoxContainer" unique_id=816850211]
+[node name="gold_amount" type="RichTextLabel" parent="HBoxContainer/HBoxContainer/gold/MarginContainer/HBoxContainer" unique_id=816850211]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 12
 text = "5"
@@ -96,38 +96,8 @@ layout_mode = 2
 texture = ExtResource("2_n5ude")
 expand_mode = 3
 
-[node name="amount" type="RichTextLabel" parent="HBoxContainer/HBoxContainer/food/MarginContainer/HBoxContainer" unique_id=1171841936]
-layout_mode = 2
-theme_override_font_sizes/normal_font_size = 12
-text = "5"
-fit_content = true
-autowrap_mode = 0
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="happiness" type="PanelContainer" parent="HBoxContainer/HBoxContainer" unique_id=550905994]
-visible = false
-custom_minimum_size = Vector2(68, 0)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_fyqef")
-
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/HBoxContainer/happiness" unique_id=1449255131]
-layout_mode = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 8
-
-[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/HBoxContainer/happiness/MarginContainer" unique_id=1426725776]
-layout_mode = 2
-alignment = 1
-
-[node name="icon" type="TextureRect" parent="HBoxContainer/HBoxContainer/happiness/MarginContainer/HBoxContainer" unique_id=223800514]
-layout_mode = 2
-texture = ExtResource("3_y4yjw")
-expand_mode = 3
-
-[node name="amount" type="RichTextLabel" parent="HBoxContainer/HBoxContainer/happiness/MarginContainer/HBoxContainer" unique_id=16202480]
+[node name="food_amount" type="RichTextLabel" parent="HBoxContainer/HBoxContainer/food/MarginContainer/HBoxContainer" unique_id=1171841936]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 12
 text = "5"
@@ -157,7 +127,8 @@ layout_mode = 2
 texture = ExtResource("4_waa4j")
 expand_mode = 3
 
-[node name="amount" type="RichTextLabel" parent="HBoxContainer/HBoxContainer/wood/MarginContainer/HBoxContainer" unique_id=1184863202]
+[node name="wood_amount" type="RichTextLabel" parent="HBoxContainer/HBoxContainer/wood/MarginContainer/HBoxContainer" unique_id=1184863202]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 12
 text = "5"
@@ -187,7 +158,8 @@ layout_mode = 2
 texture = ExtResource("5_ok7cu")
 expand_mode = 3
 
-[node name="amount" type="RichTextLabel" parent="HBoxContainer/HBoxContainer/potions/MarginContainer/HBoxContainer" unique_id=124167737]
+[node name="potions_amount" type="RichTextLabel" parent="HBoxContainer/HBoxContainer/potions/MarginContainer/HBoxContainer" unique_id=124167737]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 12
 text = "5"
@@ -217,7 +189,8 @@ layout_mode = 2
 texture = ExtResource("6_irxef")
 expand_mode = 3
 
-[node name="amount" type="RichTextLabel" parent="HBoxContainer/HBoxContainer/tools/MarginContainer/HBoxContainer" unique_id=1604306206]
+[node name="tools_amount" type="RichTextLabel" parent="HBoxContainer/HBoxContainer/tools/MarginContainer/HBoxContainer" unique_id=1604306206]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 12
 text = "5"

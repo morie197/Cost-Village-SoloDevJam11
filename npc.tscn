@@ -5,6 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://bwstmprttpr8j" path="res://assets/Style 3/emote_exclamation.png" id="3_bc6q4"]
 [ext_resource type="Texture2D" uid="uid://by5d7a7lxlmry" path="res://assets/Style 3/emote_exclamations.png" id="4_mcvl2"]
 [ext_resource type="Texture2D" uid="uid://cjs25ovx51xjl" path="res://assets/Style 3/emote_faceAngry.png" id="5_bc6q4"]
+[ext_resource type="Texture2D" uid="uid://dfsbogbyrou7m" path="res://assets/Style 3/emote_faceSad.png" id="6_d61ma"]
+[ext_resource type="Texture2D" uid="uid://bot44yslsfeta" path="res://assets/Style 3/emote_faceHappy.png" id="7_slxoh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xxcha"]
 size = Vector2(5, 5)
@@ -76,5 +78,29 @@ offset_top = -32.0
 offset_right = 16.0
 offset_bottom = -8.0
 texture = ExtResource("5_bc6q4")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="sad" type="TextureRect" parent="." unique_id=2078455939]
+unique_name_in_owner = true
+visible = false
+z_index = 10
+offset_left = -16.0
+offset_top = -32.0
+offset_right = 16.0
+offset_bottom = -8.0
+texture = ExtResource("6_d61ma")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="happy" type="TextureRect" parent="." unique_id=2143769962]
+unique_name_in_owner = true
+visible = false
+z_index = 10
+offset_left = -16.0
+offset_top = -32.0
+offset_right = 16.0
+offset_bottom = -8.0
+texture = ExtResource("7_slxoh")
 expand_mode = 1
 stretch_mode = 5

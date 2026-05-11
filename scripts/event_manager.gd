@@ -177,3 +177,56 @@ func trigger_event(npc_cause: String, event: Array):
 		return
 	GameManager.npc_manager.unique_npcs[npc_cause].trigger_event(event)
 	
+func get_raw_target_professions(professions, targets):
+	var target_data: Dictionary = {}
+	
+	for target_profession in professions:
+		var raw_profession: String = target_profession.rstrip("0123456789")
+		var id_number: String = target_profession.erase(0, raw_profession.length())
+		for target: String in targets:
+			match raw_profession:
+				"anyone":
+					var data_name = "random" + str(id_number)
+					if target_data.has(data_name):
+						print("Already have that profession!")
+					target_data[data_name] = target
+				"blacksmith":
+					var data_name = "blacksmith" + str(id_number)
+					if target_data.has(data_name):
+						print("Already have that profession!")
+					target_data[data_name] = target
+				"wizard":
+					var data_name = "wizard" + str(id_number)
+					if target_data.has(data_name):
+						print("Already have that profession!")
+					target_data[data_name] = target
+				"lumberjack":
+					var data_name = "lumberjack" + str(id_number)
+					if target_data.has(data_name):
+						print("Already have that profession!")
+					target_data[data_name] = target
+				"civilian":
+					var data_name = "civilian" + str(id_number)
+					if target_data.has(data_name):
+						print("Already have that profession!")
+					target_data[data_name] = target
+				_:
+					print("Unknown profession: " + target_profession)
+
+	return target_data
+
+func apply_atributes(attributes: Dictionary):
+	for key in attributes:
+		var amount = int(attributes[key])
+		var amount_text: String = str(amount)
+		if amount >= 0:
+			amount_text = "+" + amount_text
+			amount_text = "[color=green]" + amount_text + "[/color]"
+		else:
+			amount_text = "[color=red]" + amount_text + "[/color]"
+		if key.contains("happiness"):
+			var happiness_target = key.split(",")[0]
+			GameManager.npc_manager.change_happiness(happiness_target, amount)
+		else:
+			GameManager.change_item_value(key, amount)
+			
