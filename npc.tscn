@@ -29,7 +29,6 @@ region_rect = Rect2(16, 112, 16, 16)
 unique_name_in_owner = true
 path_desired_distance = 4.0
 target_desired_distance = 4.0
-debug_enabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1799440383]
 shape = SubResource("RectangleShape2D_xxcha")

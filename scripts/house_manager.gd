@@ -49,6 +49,7 @@ func enter_house(house_name: String) -> bool:
 		return false
 	
 	var house = houses[house_name]
+	house.house_enter.play()
 	house_occupants[house] += 1
 	return true
 	

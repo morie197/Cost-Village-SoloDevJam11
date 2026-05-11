@@ -10,9 +10,9 @@ var events: Dictionary = {
 }
 
 var event_chances: Dictionary = {
-	"safe": 10,
-	"problem": 30,
-	"critical": 60
+	"safe": 70,
+	"problem": 20,
+	"critical": 10
 }
 
 var experienced_events: Dictionary = {
@@ -92,7 +92,7 @@ func create_event_dictionary():
 					events[danger_level][cause] = {}
 				events[danger_level][cause][danger_name] = danger_entry
 				
-		print(events)
+		#print(events)
 
 func choose_random_event(trigger_npc: String) -> Dictionary:
 	var safety_level: String

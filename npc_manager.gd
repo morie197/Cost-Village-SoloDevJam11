@@ -131,4 +131,4 @@ func unalive_npc(target_unique_name):
 	npcs[target.npc_name].erase(target)
 	npcs_with_no_event.erase(target_unique_name)
 	target.queue_free()
-	print(target_unique_name + " died")
+	GameManager.ui_manager.death_sound.play()

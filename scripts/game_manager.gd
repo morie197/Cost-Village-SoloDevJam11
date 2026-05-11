@@ -9,9 +9,9 @@ enum npc_possible_activities{WANDERING, WORKING, INSIDE}
 
 const day_intervals: int = 10
 
-var day_length: float = 20
+var day_length: float = 50
 var current_time: int = 1
-var time_padding: float = 5
+var time_padding: float = 15
 
 var day_interval_length: float = 0
 
@@ -22,20 +22,22 @@ var paused: bool = false
 var day: int = 1
 var final_day: int = 5
 
-var min_events_per_day: int = 5
+var min_events_per_day: int = 4
 var max_events_per_day: int = 7
 
 var event_trigger_times: Dictionary = {}
 
 var gold: int = 200
-var food: int = 20
-var wood: int = 20
-var potions: int = 5
-var tools: int = 5
+var food: int = 10
+var wood: int = 10
+var potions: int = 2
+var tools: int = 2
 
 signal time_change(new_time: int)
 signal values_changed
 signal new_day
+signal lost_game
+signal won_game
 
 func _unhandled_input(event):
 	if Input.is_action_just_pressed("debug"):
@@ -65,6 +67,21 @@ func _process(delta):
 		#print(current_time)
 		time_change.emit(current_time)
 
+func restart():
+	house_manager = null
+	npc_manager = null
+	ui_manager = null
+	get_tree().reload_current_scene()
+	paused = false
+	day = 1
+	accumulated_time = 0
+	current_time = 1
+	gold = 200
+	food = 20
+	wood = 20
+	potions = 5
+	tools = 5
+
 func pause():
 	print("paused")
 	paused = true
@@ -79,6 +96,8 @@ func end_day():
 	pause()
 	current_time = 1
 	create_events()
+	if day > 5:
+		won_game.emit()
 	
 func cause_event(event_data):
 	var event_data_keys: Array = event_data.keys()
@@ -137,9 +156,14 @@ func change_item_value(item_name: String, amount: int):
 			food = clamp(food + amount, 0, 9999)
 		"potion":
 			potions = clamp(potions + amount, 0, 9999)
+		"potions":
+			potions = clamp(potions + amount, 0, 9999)
 		"wood":
 			wood = clamp(wood + amount, 0, 9999)
 		_:
 			print("unkown item: " + item_name)
 			
 	values_changed.emit()
+	
+	if gold == 0 or food == 0:
+		lost_game.emit()

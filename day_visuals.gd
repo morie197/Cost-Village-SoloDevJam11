@@ -17,6 +17,8 @@ var day_screen_time: float = 5
 func _ready():
 	modulate = Color.TRANSPARENT
 	day_changed_panel.modulate = Color.TRANSPARENT
+	day_changed_panel.visible = true
+	visible = true
 	GameManager.new_day.connect(_update_visuals)
 
 
@@ -25,6 +27,8 @@ func _process(delta):
 	pass
 
 func _update_visuals():
+	if GameManager.day > 5:
+		return
 	var day_text: Array[RichTextLabel] = [day_1, day_2, day_3, day_4, day_5]
 	var current_day_index = GameManager.day
 	
@@ -52,6 +56,7 @@ func _update_visuals():
 	var new_position: Vector2 = Vector2(position.x - (60 + 4), position.y)
 	var tween = create_tween()
 	tween.tween_property(self, "position", new_position, day_smoothness)
+	%next_day_sound.play()
 	
 	
 

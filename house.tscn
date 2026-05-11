@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://drtgrp0cdpke3" path="res://resources/house_indicator.tres" id="1_metfq"]
 [ext_resource type="Script" uid="uid://1f3su4hclkcv" path="res://scripts/house.gd" id="2_6syyc"]
+[ext_resource type="AudioStream" uid="uid://b15vvl37c1wvl" path="res://25347980-door-opening-and-closing-18398.wav" id="3_6syyc"]
 
 [node name="house" type="Sprite2D" unique_id=1562481128]
 modulate = Color(0, 1, 1, 0.63529414)
@@ -9,3 +10,11 @@ visibility_layer = 16
 z_index = 10
 texture = ExtResource("1_metfq")
 script = ExtResource("2_6syyc")
+
+[node name="house_enter" type="AudioStreamPlayer2D" parent="." unique_id=712248525]
+unique_name_in_owner = true
+stream = ExtResource("3_6syyc")
+volume_db = -5.0
+pitch_scale = 1.7
+max_distance = 200.0
+bus = &"sfx"

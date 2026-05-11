@@ -3,6 +3,8 @@ class_name NPC
 
 @export var npc_name: String = "civilian"
 
+@export var npc_nickname: String = ""
+
 @onready var npc_sprite = %npc_sprite
 @onready var agent = %agent
 
@@ -58,7 +60,7 @@ var target_object: Place = null :
 			target_coords = new_object.location
 
 #var target_achieve_distance: float = 5
-var wander_distance: float = 30
+var wander_distance: float = 80
 
 var idle_time: float = 2
 
@@ -190,8 +192,8 @@ func _clicked(viewport, event, shape_index):
 				#if current_event_targets == []:
 				#	print("empty targets")
 				#	return
-				GameManager.ui_manager.popup_event(unique_name, current_event_targets, current_event)
-				deal_with_event()
+				if GameManager.ui_manager.popup_event(unique_name, current_event_targets, current_event):
+					deal_with_event()
 				return
 			if ui_panel == null:
 				ui_panel = NPC_UI.instantiate()

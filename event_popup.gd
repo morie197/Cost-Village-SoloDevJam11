@@ -10,10 +10,13 @@ var ignore_description: String = "Do nothing"
 
 var current_event: Array = []
 
+var in_event: bool = false
+
 func _ready():
 	visible = false
 	
 func handle_event(cause_npc: String, target_npcs: Array, event_data: Array):
+	in_event = true
 	GameManager.pause()
 	#print("cause npc: " + cause_npc)
 	#print("target_npcs: " + str(target_npcs))
@@ -29,7 +32,7 @@ func handle_event(cause_npc: String, target_npcs: Array, event_data: Array):
 	
 	var event = EventManager.events[danger_level][cause_npc_profession][danger_name]
 	
-	var cause_data = {"self" = cause_npc.capitalize()}
+	var cause_data = {"self" = GameManager.npc_manager.unique_npcs[cause_npc].npc_nickname.capitalize()}
 	var description: String = event["description"].format(cause_data)
 	
 	var target_data = EventManager.get_raw_target_professions(event["targets"], target_npcs)
@@ -38,7 +41,9 @@ func handle_event(cause_npc: String, target_npcs: Array, event_data: Array):
 		
 	for target_profession in target_data:
 		for target: String in target_npcs:
-			target_data_capital[target_profession] = target.capitalize()
+			if target == "none":
+				break
+			target_data_capital[target_profession] = GameManager.npc_manager.unique_npcs[target].npc_nickname.capitalize()
 
 	for profession in target_data_capital:
 		var description_target_data: Dictionary = {profession: target_data_capital[profession]}
@@ -96,6 +101,7 @@ func option_choosed(option_chosen: int):
 	EventManager.planned_events.erase(danger_name)
 	GameManager.unpause()
 	visible = false
+	in_event = false
 	for option in options_container.get_children():
 		option.queue_free()
 		current_event = []

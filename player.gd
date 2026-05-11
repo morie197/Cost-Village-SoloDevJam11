@@ -11,7 +11,7 @@ var zoom_out_amount: float = 1.4
 
 var scroll_amount: float = 1
 
-var max_distance_from_center: float = 500
+var max_distance_from_center: float = 650
 var center_position: Vector2
 
 func _unhandled_input(event):
@@ -26,9 +26,13 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if GameManager.paused:
+		return
 	_zoom(delta)
 	
 func _physics_process(delta):
+	if GameManager.paused:
+		return
 	_move(delta)
 	
 func _move(_delta):

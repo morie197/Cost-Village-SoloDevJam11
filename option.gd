@@ -135,14 +135,14 @@ func process_choice(choice: Dictionary, self_format_data: Dictionary, target_for
 				print("INVALID HAPPINESS TARGET: " + happiness_target)
 				continue
 			var current_target_happiness: String = str(GameManager.npc_manager.unique_npcs[happiness_target].happiness)
-			option_result.text += happiness_target.capitalize() + ": [hint=Happiness][img=16x16]res://resources/happiness.tres[/img][/hint] " + current_target_happiness + amount_text
+			option_result.text += GameManager.npc_manager.unique_npcs[happiness_target].npc_nickname.capitalize() + ": [hint=Happiness][img=16x16]res://resources/happiness.tres[/img][/hint] " + current_target_happiness + amount_text
 		elif key.contains("dead"):
 			var dead_target = key.split(",")[0]
 			if not GameManager.npc_manager.unique_npcs.has(dead_target):
 				#print(GameManager.npc_manager.unique_npcs)
 				print("INVALID DEAD TARGET  : " + dead_target)
 				continue
-			option_result.text += dead_target.capitalize() + ": [hint=Death][img=16x16]res://resources/dead.tres[/img][/hint] "
+			option_result.text += GameManager.npc_manager.unique_npcs[dead_target].npc_nickname.capitalize() + ": [hint=Death][img=16x16]res://resources/dead.tres[/img][/hint] "
 		elif key == "tool":
 			if -amount > GameManager.tools:
 				invalid_option()
