@@ -85,9 +85,9 @@ func option_choosed(option_chosen: int):
 		
 	for key in attributes:
 		var final_key: String = key
+		final_key = final_key.format(self_format_data)
 		for profession in target_format_data:
 			var description_target_data: Dictionary = {profession: target_format_data[profession]}
-			final_key = final_key.format(self_format_data)
 			final_key = final_key.format(description_target_data)
 			
 		new_attributes_keys[final_key] = attributes[key]

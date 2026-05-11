@@ -100,8 +100,12 @@ func choose_npc_with_profession(profession: String) -> String:
 	if profession == "anyone":
 		return npcs_with_no_event[randi_range(0, npcs_with_no_event.size() - 1)]
 		
+	if profession == "noone" or "none" or null:
+		return "none"
+		
 	if not npcs.has(profession):
 		print("No profession called: " + profession)
+		return ""
 		
 	for npc in npcs[profession]:
 		if npcs_with_no_event.has(npc.unique_name):
@@ -116,3 +120,15 @@ func change_happiness(target_unique_name, change: int):
 	
 	var target = unique_npcs[target_unique_name]
 	target.change_happiness(change)
+	
+func unalive_npc(target_unique_name):
+	if not unique_npcs.has(target_unique_name):
+		print("No npc with the name: " + target_unique_name)
+		return
+
+	var target = unique_npcs[target_unique_name]
+	unique_npcs.erase(target_unique_name)
+	npcs[target.npc_name].erase(target)
+	npcs_with_no_event.erase(target_unique_name)
+	target.queue_free()
+	print(target_unique_name + " died")

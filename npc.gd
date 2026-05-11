@@ -163,6 +163,8 @@ func trigger_event(event_data):
 	var professions = EventManager.events[danger_level][cause][event_name]["targets"]
 	
 	for profession in professions:
+		if profession == "none":
+			continue
 		var profession_name: String = GameManager.npc_manager.choose_npc_with_profession(profession)
 		if profession_name == "":
 			print("Not enough professions")
@@ -185,9 +187,9 @@ func _clicked(viewport, event, shape_index):
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			#print(current_event)
 			if current_event != []:
-				if current_event_targets == []:
-					print("empty targets")
-					return
+				#if current_event_targets == []:
+				#	print("empty targets")
+				#	return
 				GameManager.ui_manager.popup_event(unique_name, current_event_targets, current_event)
 				deal_with_event()
 				return

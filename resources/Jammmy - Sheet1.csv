@@ -3,5 +3,14 @@ distaste,safe,"{random} made a mean joke at {self} for the 5th time this week, a
 distaste,safe,Convince {random} to cut it out.,TRUE,"{self},happiness +1; gold -20",anyone; anyone
 distaste,safe,Promise {random} a shiny new tool if they stop.,TRUE,"{random},happiness +2; tool -1",anyone; anyone
 rude_blacksmith,safe,"{self} accidently dropped an iron hammer on {random}'s toe, prompting a fight.",FALSE,"{random},happiness -2",blacksmith; anyone
-rude_blacksmith,safe,Tell {self} to make iron slippers for all customers entering the shop.,TRUE,"{random},happiness +1; tool -2",blacksmith; anyone
+rude_blacksmith,safe,Tell {self} to make iron slippers for all customers entering the shop.,TRUE,"{random},happiness +1; tool -1",blacksmith; anyone
 rude_blacksmith,safe,Enforce safety procedures stating all tools must be at ground level or 5 meters away from any customers.,TRUE,"{random},happiness +2; {self},happiness -2",blacksmith; anyone
+lumberjack_paradox,problem,"The {blacksmith} requested that {self} bring wood for the furnace so he could make a new axe, but {self} doesn't have an axe!",FALSE,"{self},happiness -2",lumberjack; blacksmith
+lumberjack_paradox,problem,Give {self} a spare axe.,TRUE,"{self},happiness +2; tool -1",lumberjack; blacksmith
+lumberjack_paradox,problem,Give {blacksmith} some spare wood.,TRUE,"{blacksmith},happiness +1; wood -5",lumberjack; blacksmith
+wooden_furniture,safe,"{self} wants to make a wooden desk for studying, but doesn't have any wood!",FALSE,"{self},happiness -1",anyone; none
+wooden_furniture,safe,Give {self} some wood to make a wooden desk.,TRUE,"{self},happiness +2; wood -10",anyone; none
+wooden_furniture,safe,Give {self} some gold to buy wood.,TRUE,"{self},happiness +1; gold -30",anyone; none
+bleeding,critical,"{self} accidently cut themselves badly, and are bleeding profusely!",FALSE,"{self},dead +1",anyone; none
+bleeding,critical,Give {self} some potions to fully heal up.,TRUE,"{self},happiness +2; potions -2",anyone; none
+bleeding,critical,Get one of the best doctors around to treat {self}.,TRUE,"{self},happiness +1; gold -200",anyone; none

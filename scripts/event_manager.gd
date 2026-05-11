@@ -10,9 +10,9 @@ var events: Dictionary = {
 }
 
 var event_chances: Dictionary = {
-	"safe": 90,
-	"problem": 10,
-	"critical": 0
+	"safe": 10,
+	"problem": 30,
+	"critical": 60
 }
 
 var experienced_events: Dictionary = {
@@ -121,6 +121,7 @@ func choose_random_event(trigger_npc: String) -> Dictionary:
 			trigger_npc = "anyone"
 		else:
 			print("No trigger for any npcs")
+		return {}
 	
 	var chosen_event
 	
@@ -227,6 +228,13 @@ func apply_atributes(attributes: Dictionary):
 		if key.contains("happiness"):
 			var happiness_target = key.split(",")[0]
 			GameManager.npc_manager.change_happiness(happiness_target, amount)
+		elif key.contains("dead"):
+			var dead_target = key.split(",")[0]
+			if not GameManager.npc_manager.unique_npcs.has(dead_target):
+				#print(GameManager.npc_manager.unique_npcs)
+				print("INVALID DEAD TARGET: " + dead_target)
+				continue
+			GameManager.npc_manager.unalive_npc(dead_target)
 		else:
 			GameManager.change_item_value(key, amount)
 			

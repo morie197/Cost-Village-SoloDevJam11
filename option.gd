@@ -108,13 +108,14 @@ func process_choice(choice: Dictionary, self_format_data: Dictionary, target_for
 		
 	for key in original_attributes:
 		var final_key: String = key
+		final_key = final_key.format(original_self_format_data)
 		for profession in original_target_format_data:
-			final_key = final_key.format(original_self_format_data)
 			final_key = final_key.format(original_target_format_data)
 			
 		original_attribute_keys[final_key] = original_attributes[key]
 	
 	for key: String in original_attribute_keys:
+		print("Key: " + key)
 		if option_result.text != "":
 			option_result.text += " / "
 		
@@ -126,7 +127,7 @@ func process_choice(choice: Dictionary, self_format_data: Dictionary, target_for
 		else:
 			amount_text = "[color=red]" + amount_text + "[/color]"
 		if key.contains("happiness"):
-			#print(key)
+			#
 			var happiness_target = key.split(",")[0]
 			#print(happiness_target)
 			if not GameManager.npc_manager.unique_npcs.has(happiness_target):
@@ -135,6 +136,13 @@ func process_choice(choice: Dictionary, self_format_data: Dictionary, target_for
 				continue
 			var current_target_happiness: String = str(GameManager.npc_manager.unique_npcs[happiness_target].happiness)
 			option_result.text += happiness_target.capitalize() + ": [hint=Happiness][img=16x16]res://resources/happiness.tres[/img][/hint] " + current_target_happiness + amount_text
+		elif key.contains("dead"):
+			var dead_target = key.split(",")[0]
+			if not GameManager.npc_manager.unique_npcs.has(dead_target):
+				#print(GameManager.npc_manager.unique_npcs)
+				print("INVALID DEAD TARGET  : " + dead_target)
+				continue
+			option_result.text += dead_target.capitalize() + ": [hint=Death][img=16x16]res://resources/dead.tres[/img][/hint] "
 		elif key == "tool":
 			if -amount > GameManager.tools:
 				invalid_option()
