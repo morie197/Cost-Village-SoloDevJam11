@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://ctsghtdnjdwug"]
+
+[ext_resource type="Script" uid="uid://0ug7i5ri8ufu" path="res://option.gd" id="1_cd5v0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rtwqn"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[node name="option" type="PanelContainer" unique_id=950059648]
+theme_override_styles/panel = SubResource("StyleBoxFlat_rtwqn")
+script = ExtResource("1_cd5v0")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1725742662]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1841943756]
+layout_mode = 2
+
+[node name="option_text" type="RichTextLabel" parent="MarginContainer/VBoxContainer" unique_id=397529342]
+unique_name_in_owner = true
+layout_mode = 2
+fit_content = true
+
+[node name="option_result" type="RichTextLabel" parent="MarginContainer/VBoxContainer" unique_id=518521005]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 10
+bbcode_enabled = true
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+meta_underlined = false
+hint_underlined = false

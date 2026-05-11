@@ -580,6 +580,18 @@ script = ExtResource("6_k1oaq")
 position = Vector2(232, 344)
 schedule = ExtResource("8_74v4g")
 
+[node name="npc4" parent="npc_manager" unique_id=2020092824 instance=ExtResource("7_kagfw")]
+position = Vector2(488, 344)
+schedule = ExtResource("8_74v4g")
+
+[node name="npc5" parent="npc_manager" unique_id=409927967 instance=ExtResource("7_kagfw")]
+position = Vector2(408, 304)
+schedule = ExtResource("8_74v4g")
+
+[node name="npc6" parent="npc_manager" unique_id=1237710704 instance=ExtResource("7_kagfw")]
+position = Vector2(312, 328)
+schedule = ExtResource("8_74v4g")
+
 [node name="npc2" parent="npc_manager" unique_id=566128535 instance=ExtResource("7_kagfw")]
 position = Vector2(312, 248)
 schedule = ExtResource("8_74v4g")

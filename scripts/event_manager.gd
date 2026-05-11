@@ -73,23 +73,26 @@ func create_event_dictionary():
 			"attributes": danger_attributes
 		}
 		
-		if events[danger_level].has(danger_name):
-			if is_choice:
-				for cause in causes:
+		for cause in causes:
+			if not events[danger_level].has(cause):
+				events[danger_level][cause] = {}
+			if events[danger_level][cause].has(danger_name):
+				if is_choice:
 					if not events[danger_level][cause][danger_name].has("choices"):
 						events[danger_level][cause][danger_name]["choices"] = {}
 					var choices_length: int = events[danger_level][cause][danger_name]["choices"].size()
 					events[danger_level][cause][danger_name]["choices"][choices_length] = danger_entry
-			else:
-				print("Already danger with name: " + danger_name)
+				else:
+					print("Already danger with name: " + danger_name)
 		
-		else:
-			danger_entry["causes"] = causes
-			danger_entry["targets"] = targets
-			for cause in causes:
+			else:
+				danger_entry["causes"] = causes
+				danger_entry["targets"] = targets
 				if not events[danger_level].has(cause):
 					events[danger_level][cause] = {}
 				events[danger_level][cause][danger_name] = danger_entry
+				
+		print(events)
 
 func choose_random_event(trigger_npc: String) -> Dictionary:
 	var safety_level: String
@@ -146,6 +149,7 @@ func get_event(trigger_npc: String) -> Array:
 		role = "anyone"
 	
 	var event = choose_random_event(role)
+	print(event)
 	if event == {}:
 		print("Not a valid event!")
 		return []
@@ -162,9 +166,14 @@ func get_event(trigger_npc: String) -> Array:
 	
 	planned_events[event_key_name] = event_value
 	
-	return event.keys()
+	return event_keys[0]
 		
 func trigger_event(npc_cause: String, event: Array):
 	print("Cause: " + npc_cause)
 	print("Event data: " + str(event))
+	
+	if not GameManager.npc_manager.unique_npcs.has(npc_cause):
+		print("No npc with unique game: " + npc_cause)
+		return
+	GameManager.npc_manager.unique_npcs[npc_cause].trigger_event(event)
 	

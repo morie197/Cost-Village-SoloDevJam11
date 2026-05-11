@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://cbhk3tjl0jyai"]
 
 [ext_resource type="Texture2D" uid="uid://cudyrgkm4rksl" path="res://resources/gold.tres" id="1_fyqef"]
+[ext_resource type="Script" uid="uid://bhg8kxugo6q8x" path="res://ui_manager.gd" id="1_waa4j"]
 [ext_resource type="Texture2D" uid="uid://dabn83w6gj4s5" path="res://resources/food.tres" id="2_n5ude"]
 [ext_resource type="Texture2D" uid="uid://cjial6dot75tk" path="res://resources/happiness.tres" id="3_y4yjw"]
 [ext_resource type="Texture2D" uid="uid://dfikmr8evj6kv" path="res://resources/wood.tres" id="4_waa4j"]
 [ext_resource type="Texture2D" uid="uid://cjamx63makgut" path="res://resources/potions.tres" id="5_ok7cu"]
 [ext_resource type="Texture2D" uid="uid://uw8opxi75t4w" path="res://resources/tools.tres" id="6_irxef"]
+[ext_resource type="Script" uid="uid://c1gp3oj3hmkel" path="res://event_popup.gd" id="7_y4yjw"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fyqef"]
 content_margin_left = 0.0
@@ -24,6 +26,7 @@ corner_radius_bottom_left = 3
 corner_detail = 5
 
 [node name="ui" type="CanvasLayer" unique_id=1997515593]
+script = ExtResource("1_waa4j")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=509631000]
 anchors_preset = 7
@@ -222,3 +225,49 @@ fit_content = true
 autowrap_mode = 0
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="event_popup" type="PanelContainer" parent="." unique_id=2036101300]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(400, 250)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("7_y4yjw")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="event_popup" unique_id=322345279]
+layout_mode = 2
+
+[node name="title_text" type="RichTextLabel" parent="event_popup/VBoxContainer" unique_id=256585032]
+unique_name_in_owner = true
+layout_mode = 2
+text = "EVENT"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="event_popup/VBoxContainer" unique_id=209265200]
+layout_mode = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
+
+[node name="event_description" type="RichTextLabel" parent="event_popup/VBoxContainer/MarginContainer" unique_id=1525339465]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Blacksmith has complained about multiple things"
+fit_content = true
+
+[node name="options_container" type="VBoxContainer" parent="event_popup/VBoxContainer" unique_id=1599818150]
+unique_name_in_owner = true
+layout_mode = 2
+alignment = 1

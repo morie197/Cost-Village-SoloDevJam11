@@ -48,6 +48,27 @@ func choose_cause_npc() -> String:
 		print("Not enough npcs available")
 		return ""
 	var cause = choose_random_npc()
+	#print("Cause npc: " + cause)
+	#print(npcs_with_no_event)
 	npcs_with_no_event.erase(cause)
+	#print(npcs_with_no_event)
 		
 	return cause
+
+func choose_npc_with_profession(profession: String) -> String:
+	if npcs_with_no_event.size() == 0:
+			print("No npcs available")
+			#print(npcs_with_no_event)
+			return ""
+	
+	if profession == "anyone":
+		return npcs_with_no_event[randi_range(0, npcs_with_no_event.size() - 1)]
+		
+	if not npcs.has(profession):
+		print("No profession called: " + profession)
+		
+	for npc in npcs[profession]:
+		if npcs_with_no_event.has(npc.unique_name):
+			return npc.unique_name
+	print("No npcs available with profession: " + profession)
+	return ""

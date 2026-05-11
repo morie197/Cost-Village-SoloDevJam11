@@ -2,15 +2,16 @@ extends Node
 
 var house_manager: HouseManager = null
 var npc_manager: NpcManager = null
+var ui_manager: UI_Manager = null
 
 enum npc_possible_states{IDLE, WANDER, GOING_TO, INSIDE, FIGHTING}
 enum npc_possible_activities{WANDERING, WORKING, INSIDE}
 
 const day_intervals: int = 10
 
-var day_length: float = 40
+var day_length: float = 20
 var current_time: int = 1
-var time_padding: float = 15
+var time_padding: float = 2
 
 var day_interval_length: float = 0
 
@@ -93,6 +94,7 @@ func create_events():
 			
 		var random_event: Array = EventManager.get_event(event_npcs[event])
 		if random_event == []:
+			npc_manager.npcs_with_no_event.append(event_npcs[event])
 			print("Not enough events")
 			continue
 		

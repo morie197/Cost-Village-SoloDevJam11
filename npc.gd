@@ -66,6 +66,9 @@ var current_place: Place = null
 
 var mouse_inside: bool = false
 
+var current_event: Array = []
+var current_event_targets: Array[String] = []
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if npc_visual != null:
@@ -106,12 +109,60 @@ func _time_changed(new_time: int):
 	possible_activities = GameManager.get_current_activities(schedule)
 	var old_activity = current_activity
 	current_activity = _choose_new_activity()
+	if current_event != []:
+		return
 	if old_activity != current_activity:
 		_update_state_based_on_activity()
+	
+func trigger_event(event_data):
+	_exit_state()
+	_enter_state(GameManager.npc_possible_states.WANDER)
+	var danger_level = event_data[0]
+	var cause = event_data[1]
+	var event_name = event_data[2]
+	match danger_level:
+		"safe":
+			complaint.visible = true
+		"problem":
+			problem.visible = true
+		"critical":
+			critical.visible = true
+	
+	if not EventManager.events[danger_level][cause][event_name].has("targets"):
+		print("invalid target for event: " + event_name)
+		return
+		
+	var professions = EventManager.events[danger_level][cause][event_name]["targets"]
+	
+	for profession in professions:
+		var profession_name: String = GameManager.npc_manager.choose_npc_with_profession(profession)
+		if profession_name == "":
+			print("Not enough professions")
+			current_event_targets.clear()
+			return
+		current_event_targets.append(profession_name)
+	
+	current_event = event_data
+	
+func deal_with_event():
+	complaint.visible = false
+	problem.visible = false
+	critical.visible = false
+	current_event = []
+	current_event_targets = []
+	GameManager.npc_manager.npcs_with_no_event.append(unique_name)
 	
 func _clicked(viewport, event, shape_index):
 	if event is InputEventMouseButton and event.pressed:
 		if event.button_index == MOUSE_BUTTON_LEFT:
+			#print(current_event)
+			if current_event != []:
+				if current_event_targets == []:
+					print("empty targets")
+					return
+				GameManager.ui_manager.popup_event(unique_name, current_event_targets, current_event)
+				deal_with_event()
+				return
 			if ui_panel == null:
 				ui_panel = NPC_UI.instantiate()
 				add_child(ui_panel)
