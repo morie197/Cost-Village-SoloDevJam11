@@ -1,21 +1,21 @@
 [gd_scene format=4 uid="uid://cfo2aoan6f23v"]
 
-[ext_resource type="Texture2D" uid="uid://c78dthm76v4xg" path="res://assets/kenny_tiny_dungeon/tilemap_packed.png" id="1_2sov6"]
-[ext_resource type="Texture2D" uid="uid://cfcnhdowbddu4" path="res://assets/kenny_tiny_town/tilemap_packed.png" id="2_hvr57"]
-[ext_resource type="Script" uid="uid://dmuo272ygo7bv" path="res://scripts/house_manager.gd" id="3_x2dom"]
-[ext_resource type="PackedScene" uid="uid://qw6560puwaur" path="res://house.tscn" id="4_kagfw"]
-[ext_resource type="Script" uid="uid://dtuqpbyc25eif" path="res://npc_manager.gd" id="6_k1oaq"]
-[ext_resource type="PackedScene" uid="uid://cbhk3tjl0jyai" path="res://ui.tscn" id="7_h2jsw"]
-[ext_resource type="PackedScene" uid="uid://bocboyufbwtnl" path="res://npc.tscn" id="7_kagfw"]
-[ext_resource type="Resource" uid="uid://c1qxc4vnngcwi" path="res://resources/schedules/civilian_schedule.tres" id="7_pt8fy"]
-[ext_resource type="Resource" uid="uid://bdj13kpdoxiho" path="res://resources/schedules/blacksmith_schedule.tres" id="8_74v4g"]
-[ext_resource type="Texture2D" uid="uid://dxgydqfc64dhf" path="res://resources/blacksmith.tres" id="8_pt8fy"]
-[ext_resource type="Texture2D" uid="uid://c44jqa6126s2t" path="res://resources/dwarf.tres" id="8_tmsfx"]
-[ext_resource type="Resource" uid="uid://fgxtf7kcpd68" path="res://resources/schedules/lumberjack_schedule.tres" id="9_qftnm"]
-[ext_resource type="Texture2D" uid="uid://bqjde7rxkv5jj" path="res://resources/wizard.tres" id="10_5ya4c"]
-[ext_resource type="PackedScene" uid="uid://gw17p6730hrx" path="res://resources/schedules/player.tscn" id="10_74v4g"]
-[ext_resource type="Resource" uid="uid://b3udbaw07w4r2" path="res://resources/schedules/wizard_schedule.tres" id="11_0idh4"]
-[ext_resource type="Texture2D" uid="uid://bkcj2fb7b0d3d" path="res://resources/civilian.tres" id="12_0idh4"]
+[ext_resource type="Texture2D" uid="uid://c78dthm76v4xg" path="res://assets/kenny_tiny_dungeon/tilemap_packed.png" id="1_vlakv"]
+[ext_resource type="Texture2D" uid="uid://cfcnhdowbddu4" path="res://assets/kenny_tiny_town/tilemap_packed.png" id="2_2lidi"]
+[ext_resource type="Script" uid="uid://dmuo272ygo7bv" path="res://scripts/house_manager.gd" id="3_564sb"]
+[ext_resource type="PackedScene" uid="uid://qw6560puwaur" path="res://scenes/house.tscn" id="4_lhgd8"]
+[ext_resource type="Script" uid="uid://dtuqpbyc25eif" path="res://scripts/npc_manager.gd" id="5_k8qjj"]
+[ext_resource type="PackedScene" uid="uid://bocboyufbwtnl" path="res://scenes/npc.tscn" id="6_3geyo"]
+[ext_resource type="Resource" uid="uid://c1qxc4vnngcwi" path="res://resources/schedules/civilian_schedule.tres" id="7_xhpov"]
+[ext_resource type="Texture2D" uid="uid://c44jqa6126s2t" path="res://resources/dwarf.tres" id="8_6rue1"]
+[ext_resource type="Resource" uid="uid://fgxtf7kcpd68" path="res://resources/schedules/lumberjack_schedule.tres" id="9_icypt"]
+[ext_resource type="Texture2D" uid="uid://dxgydqfc64dhf" path="res://resources/blacksmith.tres" id="10_n5ubg"]
+[ext_resource type="Resource" uid="uid://bdj13kpdoxiho" path="res://resources/schedules/blacksmith_schedule.tres" id="11_4cg16"]
+[ext_resource type="Texture2D" uid="uid://bkcj2fb7b0d3d" path="res://resources/civilian.tres" id="12_y8a74"]
+[ext_resource type="Texture2D" uid="uid://bqjde7rxkv5jj" path="res://resources/wizard.tres" id="13_igsjw"]
+[ext_resource type="Resource" uid="uid://b3udbaw07w4r2" path="res://resources/schedules/wizard_schedule.tres" id="14_pr7f2"]
+[ext_resource type="PackedScene" uid="uid://cbhk3tjl0jyai" path="res://scenes/ui.tscn" id="15_v2djf"]
+[ext_resource type="PackedScene" uid="uid://gw17p6730hrx" path="res://scenes/player.tscn" id="16_qn11p"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_c417q"]
 vertices = PackedVector2Array(57, 521, 55, 521, 55, 519, 57, 519, 1977, 1577, 1975, 1577, 1975, -889, 1977, -889, -1207, 233, -1241, 233, -1241, 231, -1209, 231, -1207, 217, -1209, 215, -1177, 215, -1143, 217, -1143, 199, -1177, 199, 697, 761, 681, 761, -41, 759, 569, 759, 633, 809, 601, 809, -9, 807, 25, 807, 359, 441, 329, 441, -265, 439, -199, 423, -169, 423, 473, 439, 457, 615, 487, 615, 857, 617, 857, 649, 841, 649, 391, 647, 391, 617, 183, 121, 153, 121, -265, 119, -247, 119, 343, 233, 265, 233, -89, 231, 249, 231, 871, 599, 873, 601, 873, 617, 841, 599, 825, 665, 825, 681, 793, 681, 471, 679, 471, 649, 423, 839, 537, 841, 537, 857, 505, 857, 183, 855, 393, 839, 327, -167, 265, -167, -9, -169, 265, -185, 295, -185, 329, -169, 487, 569, 457, 569, 151, 567, 153, 567, -121, 505, -151, 505, -457, 503, -457, 473, -247, 471, -217, 471, -87, 489, 839, 505, 745, 505, 535, 503, 633, 503, 199, -7, 169, -7, -73, -9, -73, -55, 201, -23, 887, 185, 857, 185, 615, 183, 809, 183, 439, 665, 361, 665, 183, 663, 183, 617, 361, 647, 985, 489, 969, 489, 759, 487, 809, 487, 727, -119, 697, -119, 503, -121, 505, -121, 1159, 89, 1129, 89, 935, 87, 953, 87, -103, -55, -297, -57, -247, -57, 343, 151, 407, 169, 377, 169, 183, 167, 313, 151, 1079, 217, 1033, 217, 887, 215, 905, 215, -25, 473, -55, 473, -217, 441, 9, 457, 649, 777, 649, 793, 633, 793, 471, 791, 471, 761, 569, 825, 569, 841, 423, 809, 391, -327, 361, -327, 247, -329, 265, -329, 23, 265, -7, 265, -121, 263, -119, 231, -119, 57, -183, 57, -249, 55, -215, 55, -217, 649, -247, 649, -345, 647, -231, 647, 775, 345, 729, 345, 663, 343, 681, 343, 759, -137, 759, -183, 761, -247, 761, -25, 665, -343, 649, -343, 567, -345, 569, -345, 407, -231, 377, -231, 311, -233, 345, -233, 521, -217, 583, -183, 553, -183, 487, -185, 487, -231, 489, -233, 1063, 9, 1033, 9, 967, 7, 1001, 7, 887, -327, 857, -327, 807, -329, 857, -329, 1095, 7, 1145, 23, 1143, 41, 1113, 41, 1063, 39, 1065, 7, -249, 25, -279, 25, -329, 23, -329, -23, -295, -9, 903, 409, 873, 409, 823, 407, 825, 407, 791, 425, 761, 425, 711, 423, 729, 423, 471, -281, 505, -263, 489, -263, 439, -265, 441, -281, 1015, -153, 1049, -137, 1065, -121, 1063, -119, 1033, -119, 999, -121, 999, -151, 135, -375, 105, -375, 71, -377, 105, -377, 967, -23, 937, -23, 903, -25, 937, -25, -89, 39, -25, 41, -119, 41, -119, 39, -265, 89, -295, 89, -329, 87, -329, 41, -279, 55, 919, 457, 889, 457, 855, 455, 873, 455, -281, 265, -311, 265, -345, 263, -327, 231, -297, 231, -215, 249, -297, 569, -327, 569, -361, 567, -359, 551, 423, 247, 809, 231, 839, 231, 841, 247, 745, -327, 729, -327, 695, -329, 713, -329, 663, -279, 633, -279, 615, -281, 617, -281, 455, -247, 425, -247, 407, -249, 409, -265, 1113, -41, 1095, -39, 1065, -39, 1047, -41, 1047, -71, 1097, -73, 1113, -73, 855, 359, 857, 361, 855, 377, 825, 377, 807, 375, 825, 359, 567, 377, 537, 377, 519, 375, 519, 329, 633, 361, 71, 297, 41, 297, 23, 295, 89, 281, 487, 361, 457, 361, 439, 359, 439, 329, 489, 329, 665, 455, 663, 473, 633, 473, 615, 471, 615, 425, 665, 425, 39, 487, 87, 489, -23, 489, 9, 487, 135, 601, 105, 601, 87, 599, 121, 567, 135, -345, 137, -391, 137, -345, 135, -377, -41, -73, 297, -89, 327, -89, 393, -73, 343, 87, 633, 71, 663, 71, 615, 105, 553, 105, 761, -375, 761, -359, 745, -359, 727, -361, 729, -377, 953, -215, 953, -199, 937, -199, 919, -201, 921, -217, 455, -375, 425, -375, 423, -377, 425, -393, 681, -265, 695, -231, 665, -231, 663, -233, 359, -391, 329, -391, 327, -393, 329, -409, -71, -265, -89, -247, -119, -247, -121, -249, -121, -295, -71, -295, 919, 41, 889, 41, 887, 39, 889, 39, -217, -103, -247, -103, -249, -105, -247, -105, 903, 137, 873, 137, 871, 135, 873, 135, -169, -23, -199, -23, -201, -25, -201, -55, -167, -39, -121, 201, -151, 201, -153, 199, -153, 153, -119, 185, -41, 713, -71, 713, -73, 711, -71, 711, -41, 567, -41, 521, -39, 537, -39, 599, 1113, 313, 1113, 329, 1097, 329, 1095, 327, 1097, 295, 873, 345, 873, 361, 855, 313, 889, 585, 889, 601, 871, 569, -23, 537, -25, 519, 343, 713, 313, 713, 183, 695, 183, 665, 967, -217, 983, -215, 889, -167, 889, -121, 887, -137, 887, -167, 681, -311, 679, -281, 679, -311, 535, -249, 551, -247, 521, -247, 519, -249, 199, -393, 215, -391, 185, -391, 169, -393, 391, -297, 407, -295, 377, -295, 361, -297, 247, -297, 263, -295, 233, -295, 217, -297, 121, -263, 121, -217, 119, -233, 119, -279, 1001, -39, 999, -9, 999, -39, 887, 103, 903, 105, 873, 105, 857, 103, 1065, 169, 1065, 215, 1063, 199, 1063, 153, -103, -9, -105, -25, -105, -55, -135, -55, 841, 201, 839, 201, 889, 489, 889, 535, 887, 519, 887, 489, 889, 537, 889, 583, 887, 567, 887, 537, 695, 455, 711, 457, 681, 457, -361, 215, -345, 217, -375, 217, -391, 215, 487, 391, 503, 393, 473, 393, 457, 391, -329, 343, -313, 345, -343, 345, -359, 343, -441, 375, -425, 377, -455, 377, -471, 375, -71, 521, -57, 519, -55, 519, -9, 375, 409, 359, -73, 407, 983, -185, 985, -199, 985, -153, 919, -249, 919, -295, 921, -263, 887, -281, 889, -295, 889, -249, 663, -361, 663, -391, 665, -375, 599, -393, 599, -423, 601, -407, 601, -345, 887, -233, 887, -279, 889, -247, 889, -201, 855, -265, 855, -311, 857, -279, 857, -233, 887, -185, 887, -215, 889, -199, 889, -169, 775, -249, 775, -279, 777, -263, 777, -247, 695, -185, 697, -199, 697, -169, 519, -313, 519, -343, 521, -327, 521, -297, 647, -185, 647, -231, 649, -199, 649, -167, 583, -153, 585, -167, 585, -137, 455, -217, 457, -231, 457, -185, 215, -345, 217, -359, 217, -329, 135, -423, 375, -169, 375, -215, 377, -183, 377, -153, 967, -25, 967, -55, 969, -39, 969, -9, 935, -41, 935, -87, 937, -55, 1143, 247, 1143, 201, 1145, 233, 1145, 281, 1127, 295, 1127, 249, 1129, 281, 1129, 313, 903, 167, 905, 153, 1015, 279, 1015, 233, 1017, 265, 1017, 311, 359, 231, 359, 185, 361, 217, 361, 247, 983, 423, 983, 377, 985, 409, 985, 455, 951, 439, 951, 393, 953, 425, 953, 487, 903, 391, 903, 345, 905, 377, 905, 407, 775, 343, 775, 297, 777, 329, 777, 375, 839, 583, 841, 569, -185, 167, -185, 137, -183, 153, -183, 199, -393, 343, -393, 297, -391, 329, -391, 375, -87, 519, -89, 521, -105, 695, -105, 649, -103, 681, -103, 711, 73, -279, 23, -297, 57, -313, 1031, 71, 1113, 87, 983, 87, 1001, 71, -311, 311, -393, 279, -375, 263, -409, 583, -391, 567, -327, 599, -345, 601, -375, 601, 41, 343, -25, 311, -7, 295, 583, 55, 553, 55, -361, 167, -313, 151, -311, 151, -263, 183, -297, 185, -327, 185, -343, 151, 1015, -73, 1063, -89, 1081, -89, 1017, -71, 1033, -89, 951, 375, 969, 359, 1015, 359, 1049, 375, 1047, 377, 1017, 377, 439, -311, 441, -311, -89, -183, -119, -183, -121, -201, -119, -201, -89, -201, -71, -231, -71, -169, 903, 327, 903, 297, 921, 297, 921, 375, 727, -73, 729, -137, 743, -329, 743, -359, 713, -359, 697, -361, 759, -249, 759, -233, 519, -233, 1177, 71, 1177, 153, 1175, 151, 1175, 121, 1161, 153, 1145, 151, 1081, 361, 1081, 377, 1079, 375, 1079, 329, 985, 281, 985, 329, 983, 327, 983, 281, 969, 329, 953, 327, 1065, 377, 1049, 409, 1049, 425, 1047, 423, 1033, 425, 1017, 423, 1017, 441, 1017, 457, 1015, 455, 1015, 409, 1001, 457, 985, 473, 983, 487, 983, 425, 953, 521, 953, 537, 951, 535, 951, 505, 937, 537, 537, -423, 537, -345, 503, -377, 503, -423, 505, -425, 1111, 167, 1113, 167, 1113, 201, 1095, 169, 473, -423, 473, -377, 455, -393, 455, -423, 919, -169, 937, -153, 919, -167, 919, -199, 1015, -119, 969, -119, 969, -121, 377, -439, 377, -393, 359, -409, 359, -439, 633, -167, 633, -121, 615, -137, 615, -167, 617, -185, 233, -249, 215, -265, -199, -169, -199, -137, -217, -153, -215, -169, -217, -199, -215, -199, 1001, 39, 983, 41, 985, 39, 937, 9, 937, 55, 935, 57, 919, 39, 919, -7, 217, 7, 217, 55, 199, 39, 201, 7, 681, 391, 681, 423, 663, 407, 665, 391, 663, 361, 665, 361, -343, 121, -361, 121, -359, 87, -25, 265, -55, 265, -393, 233, -71, 567, -89, 551, -409, 537, -391, 521, 23, -345, 41, -377, 57, -375, 23, -343, 1047, 135, 1047, 89, 1081, 105, 1081, 167, 919, -121, 937, -135, 937, -89, 711, -265, 711, -311, 729, -279, 729, -233, 583, -233, 583, -279, 601, -247, 601, -217, 281, -263, 281, -233, 263, -249, 265, -281, -7, -263, -9, -231, -25, -249, -25, -279, -7, -297, 887, -73, 887, -119, 905, -87, 903, -55, 983, 135, 983, 89, 1001, 121, 1001, 151, 1095, 215, 1111, 233, 295, 55, 295, 9, 313, 41, 313, 87, -119, -7, -137, 7, -135, -25, 807, 327, 807, 297, 825, 313, -121, 375, -121, 345, -103, 361, -103, 407, 135, 631, 153, 617, 153, 663, -425, 407, -407, 393, -407, 455, -249, 631, -249, 585, -231, 617, -297, 599, -279, 585, -279, 631, -265, -9, -231, -25, -199, 7, -215, 9, 1049, -169, 1033, -169, 329, -297, 329, -265, 295, -281, 313, -297, 295, -327, 313, -327, 121, -343, 121, -297, 87, -313, 105, -345, -217, -105, -183, -135, -183, -89, -217, -135, -265, -55, -231, -55, 1049, 343, 1033, 343, 215, -311, 217, -327, 455, -329, 489, -343, 489, -313, 151, -297, 151, -343, 185, -311, 185, -265, 295, -231, 329, -199, -185, -217, -185, -263, -151, -231, -151, -201, 663, 25, 697, 57, 697, 105, 681, 105, -199, 393, -233, 407, -231, 375, -201, 375, 135, 487, 135, 457, 169, 473, 169, 519, 41, 697, 41, 727, 7, 711, 25, 695, 407, -201, 425, -217, 375, -233, 377, -249, -233, 183, -215, 167, -233, 137, -215, 137, 1145, -25, 1129, -25, 1129, -41, 633, 25, 583, 9, 121, 697, 121, 743, 71, 727, 71, 697, 407, -153, 407, -183, 457, -167, 457, -137, 423, -119, 583, 311, 583, 281, 633, 297, 633, 343, -313, 375, -263, 361, -263, 407, -201, 647, -201, 617, -151, 633, -151, 663, -89, 775, -71, 759, -39, 761, -39, 807, -57, 809, -89, 793, 393, -119, 233, -151, 233, -89, 167, -105, 167, -151, 199, -217, 199, -247, 265, -231, 167, -201, 169, -217, 167, -247, 169, -247, -57, 327, -55, 311, -9, 345, -39, 345, -57, 281, -71, -119, -71, -73, -153, -89, -153, -135, 1033, 39, 1031, 25, -135, 663, -135, 695, -217, 679, 631, -345, 633, -361, 631, -407, 633, -391, 585, 425, 585, 471, 503, 439, 537, 407, 535, 473, 505, 473, 359, 471, -265, 409, -361, 375, -343, 375, -295, 409, -329, 393, -247, 441, -329, 455, -295, 439, 71, 679, 71, 649, 153, 665, 153, 695, 151, 697, 343, 105, 521, 121, 521, 183, 343, 41, 553, 9, 743, 119, 743, 89, 841, 105, 841, 135, 839, 137, 809, 137, -153, 279, -87, 281, -87, 327, -185, 295, -183, 279, -281, 311, -215, 295, -201, 329, -183, 217, -185, 249, 265, 327, 119, 311, 119, 281, 569, 713, 439, 727, 441, 679, 343, 743, 393, 727, -151, 263, 391, 295, 391, 249, 553, 281, 553, 311, 1095, 265, 1097, 263, 1081, 263, 1065, 265, 1079, 263, 1049, 263, 1047, 265, 375, -279, 137, -151, 137, -105, -89, -137, -39, -169, 919, -247, 1113, 247, 1111, 249, 1081, 233, 215, 487, 329, 471, 505, 503, 391, 537, 361, 537, 199, 519, 919, 487, 921, 439, 423, 217, 407, 215, 793, 215, 393, 217, 377, 215, 295, 327, 409, 329, 71, 343, 1161, 71, 1159, 121, -185, 55, -185, 9, -169, 7, -167, 7, -39, 375, -73, 361, -169, 393, -199, 375, 697, 745, 599, 759, 599, 713, 1161, 23, 1143, 87, 921, 407, 903, 455, 375, 807, 441, 791, 375, 761, 441, 761, 183, 809, 393, 809, 777, 583, 825, -345, 857, -345, 919, -297, 919, -313, 921, -313, 921, -297, 937, -297, 937, -281, 953, -281, 953, -265, 951, -263, 969, -265, 969, -249, 967, -247, 951, -247, 985, -249, 985, -233, 1001, -233, 1001, -217, 1017, -185, 1033, -185, 1015, -199, 1017, -217, 889, -297, 889, -329, 807, -359, 825, -361, 793, -361, 791, -359, 791, -375, 793, -377, 727, -391, 729, -393, 665, -393, 697, -391, 679, -313, 679, -329, 759, -281, 759, -313, 761, -313, 761, -297, 775, -327, 775, -345, 777, -345, 777, -329, 791, -327, 857, -281, 809, -311, 791, -297, 809, -295, 793, -295, 823, -265, 823, -281, 825, -281, 825, -265, 857, -215, 967, -153, 967, -185, 969, -151, 1065, -137, 1081, -121, 1097, -89, 969, -89, 985, -89, 985, -73, 967, -89, 967, -135, 857, -185, 855, -167, 839, -167, 839, -233, 855, -233, 825, -263, 825, -247, 823, -247, 823, -263, 743, -199, 743, -183, 649, -281, 647, -281, 649, -311, 647, -327, 585, -343, 585, -327, 569, -327, 569, -297, 585, -297, 585, -281, 551, -297, 553, -279, 535, -295, 551, -327, 423, -423, 407, -423, 407, -439, 393, -393, 393, -377, 665, -199, 633, -233, 631, -231, 631, -247, 617, -217, 551, -217, 553, -233, 489, -281, 505, -281, 489, -311, 471, -311, 375, -375, 359, -375, 329, -361, 345, -361, 345, -329, 311, -361, 295, -329, 311, -391, 297, -393, 281, -391, 281, -375, 279, -375, 279, -407, 297, -439, 263, -407, 263, -439, 233, -393, 249, -393, 249, -361, 265, -361, 247, -359, 295, -361, 105, -423, 71, -423, 359, -279, 359, -311, 343, -311, 343, -327, 265, -327, 345, -265, 521, -183, 521, -151, 505, -151, 503, -167, 535, -121, 535, -137, 551, -137, 663, -121, 663, -153, 679, -153, 679, -185, 729, -169, 345, -215, 345, -199, 151, -247, 151, -263, 73, -249, 89, -249, 89, -233, 23, -217, 137, -217, 137, -201, 23, -263, -41, -279, -41, -281, -25, -281, -25, -327, -7, -343, -55, -327, -55, -295, -55, -265, -55, -249, 473, -137, 473, -121, -41, -169, -41, -185, -39, -185, 265, -151, -121, -231, -169, -183, -185, -183, -185, -199, 263, -89, 263, -105, 265, -105, 265, -89, 295, -89, 295, -105, 297, -105, -41, -119, 791, -25, 791, -57, 809, -57, 809, -41, 839, -41, 839, -137, 855, -137, 857, -119, 857, -73, 1063, 7, 1063, -23, 1033, -23, 1031, -39, 1015, 25, 1015, 9, 985, 9, 967, 41, 967, 9, 937, 7, 889, -7, 873, -25, 953, 55, 919, 57, 1129, 121, 1113, 121, 1111, 105, 1143, 167, 1143, 135, 1145, 135, 1161, 233, 1017, 89, 1017, 121, 1033, 153, 1031, 151, 1031, 135, 999, 215, 1033, 199, 999, 153, 903, 135, 905, 135, 871, 105, 727, 89, 727, 87, 743, 87, 713, 41, 713, 57, 279, 9, 279, -7, 231, -7, 231, -23, 247, 55, 247, 23, 249, 23, 249, 71, 279, 71, 279, 55, 681, 121, 665, 121, 711, 151, 711, 119, 951, 215, 951, 199, 953, 199, 953, 215, 841, 153, 841, 183, 839, 183, 553, 121, 583, 183, 583, 167, 585, 167, 585, 183, 857, 201, 823, 201, 823, 185, 809, 215, 793, 185, -137, 119, -137, 103, -119, 103, -119, 119, -89, 119, -89, 103, -73, 103, -71, 119, -73, 73, -89, 73, -89, 71, -55, 71, -55, 89, -71, 89, -295, 105, -311, 105, 985, 279, 871, 247, 871, 215, 985, 233, 1033, 247, 1049, 247, 1097, 361, 1065, 327, 1063, 329, 1063, 297, 1047, 297, 1033, 311, 1065, 409, 1033, 441, 1001, 473, 953, 423, 953, 377, 935, 393, 935, 377, 825, 409, 825, 441, 823, 441, 823, 409, 793, 455, 809, 455, 791, 455, 793, 409, 775, 423, 775, 393, 743, 393, 743, 375, 775, 375, 295, 311, 311, 311, 311, 279, 313, 279, 313, 295, 729, 361, 713, 361, 713, 407, 729, 407, 711, 377, 695, 377, 695, 361, 759, 441, 743, 441, 743, 425, 713, 455, 729, 455, 729, 487, 711, 503, 969, 521, 919, 505, 919, 489, 937, 553, 921, 553, 919, 537, 921, 569, 919, 569, 857, 519, 905, 583, 905, 585, 857, 567, 857, 537, 681, 503, 663, 503, -249, 137, -249, 121, -279, 151, -263, 151, -151, 217, -153, 247, -151, 247, 185, 441, 185, 473, 199, 487, 745, 553, 697, 553, 775, 583, 775, 567, 777, 567, 697, 583, 841, 665, 793, 697, 777, 697, 777, 713, 761, 713, 761, 729, 729, 729, 729, 745, -361, 455, -361, 439, -359, 439, -359, 455, -57, 489, -119, 521, -119, 551, -121, 551, -9, 599, -9, 583, -7, 583, -7, 599, 41, 567, 39, 569, 23, 569, 23, 537, 25, 535, 41, 535, 7, 537, 7, 535, 23, 535, 23, 519, 25, 519, 57, 567, 57, 569, 41, 569, 39, 599, 41, 599, 391, 727, 391, 711, 393, 711, 361, 727, 55, 695, 55, 679, 313, 743, 151, 743, 7, 681, 25, 649, -121, 649, -121, 633, 681, 777, 345, 761, 345, 807, 151, 807, 151, 777, 601, 825, 505, 873, 441, 873, 441, 889, 409, 889, 409, 969, 393, 969, 199, 921, 393, 1143, 409, 1143, 409, 1239, 425, 1239, 425, 1319, 199, 1271, 441, 1319, 441, 1431, 457, 1431, 457, 1511, 473, 1511, 473, 1577, 183, 1577, 183, 1271, 167, 921, 167, 905, 153, 855, 135, 905, 135, 889, 87, 889, 87, 873, 153, 809, 55, 873, 55, 857, 23, 857, 23, 841, -25, 841, -25, 825, -57, 825, -89, 809, -137, 793, -137, 777, -119, 775, -185, 777, -185, 761, -217, 761, -217, 759, -201, 759, -231, 713, -231, 745, -249, 745, -249, 729, -281, 729, -281, 713, -313, 713, -313, 697, -345, 681, -361, 681, -361, 665, -393, 665, -393, 649, -409, 649, -409, 633, -425, 633, -425, 617, -441, 617, -441, 601, -457, 601, -457, 569, -473, 569, -473, 521, -489, 441, -505, 441, -505, 407, -489, 407, -489, 327, -473, 327, -473, 279, -457, 279, -457, 247, -441, 247, -441, 215, -425, 215, -425, 167, -409, 167, -409, 119, -393, 119, -393, 71, -377, 71, -377, 23, -361, 23, -345, -41, -345, -89, -329, -89, -327, -87, -327, -57, -329, -121, -313, -121, -313, -153, -297, -153, -297, -169, -281, -169, -281, -201, -265, -201, -265, -217, -249, -217, -249, -233, -233, -233, -233, -249, -217, -249, -201, -265, -201, -281, -185, -281, -185, -297, -169, -297, -169, -313, -153, -313, -153, -329, -121, -329, -121, -345, -105, -345, -105, -361, -73, -361, -73, -377, -41, -377, -41, -393, -9, -393, -9, -409, 23, -409, 23, -391, -7, -391, 55, -425, 55, -441, 151, -441, 169, -439, 151, -457, 393, -457, 393, -441, 153, 167, 361, 617, -25, 119, 313, 105, 697, -73, 391, 567, 1033, 7, 1031, 7, 1017, -41, -89, -7, -359, 23, 39, 457, 519, -295, 519, -311, 423, -329, 425, -329, 393, -329, 409, -311, -329, 551, -329, 521, -151, 551, 167, -391, 873, 327, 873, 297, -361, 329, -359, 313, -441, 345, -423, 343, -73, 681, -71, 665, 87, 55, 87, 9, 169, 39, 489, 375, -423, 233, -391, 185, -233, 361, -231, 329, -329, 313, 105, 631, -23, 681, 695, -375, 665, -409, 857, -167, 857, -137, 855, -263, 793, -265, 729, -281, 649, -313, 617, -327, 615, -343, 375, -329, 393, -359, 199, -439, 185, -345, 167, -345, 247, -327, 553, -153, -151, -249, -151, -295, 905, -41, 857, 57, 871, 153, 857, 391, 855, 407, 807, 329, 777, 327, 777, 297, 343, 295, 857, 489, 695, 425, 713, 425, -361, 185, -455, 407, -487, 473, -249, 679, -297, 695, -279, 679, -297, 649, -279, 649, -201, 713, 361, 567, 183, 537, 423, -73, 743, 41, 857, 39, 1015, 281, 391, 247, 393, 247, 953, 281, 951, 297, -425, 455, -455, 455, -439, 583, -375, 647, -41, 665, -41, 711, 873, -55, 761, 455, -151, 375, -169, 375, -151, 345, -169, 345, -455, 425, -7, -217, -391, 167, -119, 729, 793, 407, 441, 649, 601, -409, 601, -425, 569, -423, 423, -359, 887, 57, -279, -105, -297, -87, -89, 729, 105, 487, 151, 521, 551, -183, -7, -345, -247, -153, -247, -135, -249, -151, 953, 89, 953, 135, 935, 89, 935, 135, 889, 87, 905, 89, 745, 297, 633, 407, 567, 407, -487, 503, -439, 537, 311, -263, -391, 121, -199, 345, 327, -439, 329, -439, -215, -217, -137, -39, -423, 279, -23, 711, 121, 521, 377, -201, 857, -7, 663, 297, -423, 297, 105, 457, -359, 521, -471, 345, -217, -57, -247, 679, -249, 649, -327, 649, -327, 695, 57, 55, 41, -423, 57, 9, -247, -199, -279, -151, -119, -137, -121, -137, -121, -167, -151, -167, -425, 425, 425, -423, 505, -441, 871, 183, 855, 409, 793, 377, -151, -137, -169, -137, 823, 377, 89, 311, 361, 295, 361, 249, 121, 777, 55, 761, 887, -7, 87, -375, 599, -345, 599, -375, 569, -393, 569, -375, 839, 455, 871, 457, 391, 217, 329, 185, 279, 169, 745, 343, 727, 343, 727, 313, 681, 313, 329, 231, 279, 231, 249, 169, -89, 185, 665, 151, 567, -423, 233, -439, -295, -55, -359, -23, -217, 73, -247, 73, 889, 487, 871, 487, 841, 457, 839, 487, 841, 487, 23, -425, 183, 567, 153, 537, -361, 521, 873, 167, -279, 121, -281, 119, -281, 151, -313, 121, -359, 41, 215, 441, -215, -263, -217, -265, -361, -41, -183, 119, -217, 119, -489, 521, -345, 697, -9, 761, 121, 807, 55, 807, 25, 761)
@@ -23,7 +23,7 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Arr
 agent_radius = 7.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tyng3"]
-texture = ExtResource("1_2sov6")
+texture = ExtResource("1_vlakv")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -284,7 +284,7 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8
 agent_radius = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gt4gp"]
-texture = ExtResource("2_hvr57")
+texture = ExtResource("2_2lidi")
 0:0/0 = 0
 0:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_kagfw")
 1:0/0 = 0
@@ -569,202 +569,202 @@ tile_set = SubResource("TileSet_oca33")
 navigation_enabled = false
 
 [node name="house_manager" type="Node2D" parent="." unique_id=1684760897]
-script = ExtResource("3_x2dom")
+script = ExtResource("3_564sb")
 
-[node name="house" parent="house_manager" unique_id=1562481128 instance=ExtResource("4_kagfw")]
+[node name="house" parent="house_manager" unique_id=1562481128 instance=ExtResource("4_lhgd8")]
 position = Vector2(312, 280)
 house_name = "master"
 
-[node name="house4" parent="house_manager" unique_id=738870818 instance=ExtResource("4_kagfw")]
+[node name="house4" parent="house_manager" unique_id=738870818 instance=ExtResource("4_lhgd8")]
 position = Vector2(-360, 440)
 house_name = "medium1"
 
-[node name="house5" parent="house_manager" unique_id=2022337667 instance=ExtResource("4_kagfw")]
+[node name="house5" parent="house_manager" unique_id=2022337667 instance=ExtResource("4_lhgd8")]
 position = Vector2(-128, 104)
 house_name = "blacksmith"
 
-[node name="house6" parent="house_manager" unique_id=593762507 instance=ExtResource("4_kagfw")]
+[node name="house6" parent="house_manager" unique_id=593762507 instance=ExtResource("4_lhgd8")]
 position = Vector2(-40, -178)
 house_name = "small2"
 
-[node name="house7" parent="house_manager" unique_id=818970606 instance=ExtResource("4_kagfw")]
+[node name="house7" parent="house_manager" unique_id=818970606 instance=ExtResource("4_lhgd8")]
 position = Vector2(296, -104)
 house_name = "medium2"
 
-[node name="house8" parent="house_manager" unique_id=17321152 instance=ExtResource("4_kagfw")]
+[node name="house8" parent="house_manager" unique_id=17321152 instance=ExtResource("4_lhgd8")]
 position = Vector2(264, -104)
 house_name = "medium3"
 
-[node name="house9" parent="house_manager" unique_id=1117631429 instance=ExtResource("4_kagfw")]
+[node name="house9" parent="house_manager" unique_id=1117631429 instance=ExtResource("4_lhgd8")]
 position = Vector2(952, 200)
 house_name = "medium4"
 
-[node name="house10" parent="house_manager" unique_id=1560341221 instance=ExtResource("4_kagfw")]
+[node name="house10" parent="house_manager" unique_id=1560341221 instance=ExtResource("4_lhgd8")]
 position = Vector2(776, 568)
 house_name = "medium5"
 
-[node name="house11" parent="house_manager" unique_id=158992424 instance=ExtResource("4_kagfw")]
+[node name="house11" parent="house_manager" unique_id=158992424 instance=ExtResource("4_lhgd8")]
 position = Vector2(392, 712)
 house_name = "medium6"
 
-[node name="house12" parent="house_manager" unique_id=116679679 instance=ExtResource("4_kagfw")]
+[node name="house12" parent="house_manager" unique_id=116679679 instance=ExtResource("4_lhgd8")]
 position = Vector2(800, -56)
 house_name = "wizard"
 
-[node name="house3" parent="house_manager" unique_id=911119028 instance=ExtResource("4_kagfw")]
+[node name="house3" parent="house_manager" unique_id=911119028 instance=ExtResource("4_lhgd8")]
 position = Vector2(-8, 584)
 house_name = "small1"
 
-[node name="house2" parent="house_manager" unique_id=1973841302 instance=ExtResource("4_kagfw")]
+[node name="house2" parent="house_manager" unique_id=1973841302 instance=ExtResource("4_lhgd8")]
 position = Vector2(584, 168)
 house_name = "resource"
 
 [node name="npc_manager" type="Node2D" parent="." unique_id=1193108980]
-script = ExtResource("6_k1oaq")
+script = ExtResource("5_k8qjj")
 
-[node name="npc" parent="npc_manager" unique_id=1227392443 instance=ExtResource("7_kagfw")]
+[node name="npc" parent="npc_manager" unique_id=1227392443 instance=ExtResource("6_3geyo")]
 position = Vector2(312, 304)
 npc_nickname = "David"
-schedule = ExtResource("7_pt8fy")
+schedule = ExtResource("7_xhpov")
 npc_home_name = "master"
 
-[node name="npc10" parent="npc_manager" unique_id=2011673937 instance=ExtResource("7_kagfw")]
+[node name="npc10" parent="npc_manager" unique_id=2011673937 instance=ExtResource("6_3geyo")]
 position = Vector2(776, 584)
 npc_nickname = "Dan"
-schedule = ExtResource("7_pt8fy")
+schedule = ExtResource("7_xhpov")
 npc_home_name = "medium5"
 
-[node name="npc11" parent="npc_manager" unique_id=2125421343 instance=ExtResource("7_kagfw")]
+[node name="npc11" parent="npc_manager" unique_id=2125421343 instance=ExtResource("6_3geyo")]
 position = Vector2(800, 584)
 npc_name = "lumberjack"
 npc_nickname = "Harry"
-npc_visual = ExtResource("8_tmsfx")
-schedule = ExtResource("9_qftnm")
+npc_visual = ExtResource("8_6rue1")
+schedule = ExtResource("9_icypt")
 npc_home_name = "medium5"
 
-[node name="npc12" parent="npc_manager" unique_id=1138793345 instance=ExtResource("7_kagfw")]
+[node name="npc12" parent="npc_manager" unique_id=1138793345 instance=ExtResource("6_3geyo")]
 position = Vector2(-8, 600)
 npc_name = "lumberjack"
 npc_nickname = "Johny"
-npc_visual = ExtResource("8_tmsfx")
-schedule = ExtResource("9_qftnm")
+npc_visual = ExtResource("8_6rue1")
+schedule = ExtResource("9_icypt")
 npc_home_name = "small1"
 
-[node name="npc13" parent="npc_manager" unique_id=1198253542 instance=ExtResource("7_kagfw")]
+[node name="npc13" parent="npc_manager" unique_id=1198253542 instance=ExtResource("6_3geyo")]
 position = Vector2(-360, 456)
 npc_nickname = "Hayden"
-schedule = ExtResource("7_pt8fy")
+schedule = ExtResource("7_xhpov")
 npc_home_name = "medium1"
 
-[node name="npc14" parent="npc_manager" unique_id=927005950 instance=ExtResource("7_kagfw")]
+[node name="npc14" parent="npc_manager" unique_id=927005950 instance=ExtResource("6_3geyo")]
 position = Vector2(-384, 456)
 npc_nickname = "Martin"
-schedule = ExtResource("7_pt8fy")
+schedule = ExtResource("7_xhpov")
 npc_home_name = "medium1"
 
-[node name="npc15" parent="npc_manager" unique_id=1015871476 instance=ExtResource("7_kagfw")]
+[node name="npc15" parent="npc_manager" unique_id=1015871476 instance=ExtResource("6_3geyo")]
 position = Vector2(-128, 120)
 npc_name = "blacksmith"
 npc_nickname = "Paul"
-npc_visual = ExtResource("8_pt8fy")
-schedule = ExtResource("8_74v4g")
+npc_visual = ExtResource("10_n5ubg")
+schedule = ExtResource("11_4cg16")
 npc_home_name = "blacksmith"
 
-[node name="npc16" parent="npc_manager" unique_id=1874046527 instance=ExtResource("7_kagfw")]
+[node name="npc16" parent="npc_manager" unique_id=1874046527 instance=ExtResource("6_3geyo")]
 position = Vector2(-104, 120)
 npc_name = "blacksmith"
 npc_nickname = "Harold"
-npc_visual = ExtResource("8_pt8fy")
-schedule = ExtResource("8_74v4g")
+npc_visual = ExtResource("10_n5ubg")
+schedule = ExtResource("11_4cg16")
 npc_home_name = "blacksmith"
 
-[node name="npc17" parent="npc_manager" unique_id=1195125464 instance=ExtResource("7_kagfw")]
+[node name="npc17" parent="npc_manager" unique_id=1195125464 instance=ExtResource("6_3geyo")]
 position = Vector2(-40, -160)
 npc_nickname = "Rick"
-npc_visual = ExtResource("12_0idh4")
-schedule = ExtResource("8_74v4g")
+npc_visual = ExtResource("12_y8a74")
+schedule = ExtResource("11_4cg16")
 npc_home_name = "small2"
 
-[node name="npc18" parent="npc_manager" unique_id=461510658 instance=ExtResource("7_kagfw")]
+[node name="npc18" parent="npc_manager" unique_id=461510658 instance=ExtResource("6_3geyo")]
 position = Vector2(264, -80)
 npc_nickname = "Alexis"
-npc_visual = ExtResource("12_0idh4")
-schedule = ExtResource("8_74v4g")
+npc_visual = ExtResource("12_y8a74")
+schedule = ExtResource("11_4cg16")
 npc_home_name = "medium3"
 
-[node name="npc19" parent="npc_manager" unique_id=481865826 instance=ExtResource("7_kagfw")]
+[node name="npc19" parent="npc_manager" unique_id=481865826 instance=ExtResource("6_3geyo")]
 position = Vector2(288, -80)
 npc_nickname = "Conner"
-npc_visual = ExtResource("12_0idh4")
-schedule = ExtResource("8_74v4g")
+npc_visual = ExtResource("12_y8a74")
+schedule = ExtResource("11_4cg16")
 npc_home_name = "medium3"
 
-[node name="npc20" parent="npc_manager" unique_id=1754654371 instance=ExtResource("7_kagfw")]
+[node name="npc20" parent="npc_manager" unique_id=1754654371 instance=ExtResource("6_3geyo")]
 position = Vector2(312, -80)
 npc_nickname = "Peter"
-npc_visual = ExtResource("12_0idh4")
-schedule = ExtResource("8_74v4g")
+npc_visual = ExtResource("12_y8a74")
+schedule = ExtResource("11_4cg16")
 npc_home_name = "medium2"
 
-[node name="npc2" parent="npc_manager" unique_id=1233795675 instance=ExtResource("7_kagfw")]
+[node name="npc2" parent="npc_manager" unique_id=1233795675 instance=ExtResource("6_3geyo")]
 position = Vector2(352, 304)
 npc_nickname = "Brian"
-schedule = ExtResource("7_pt8fy")
+schedule = ExtResource("7_xhpov")
 npc_home_name = "master"
 
-[node name="npc3" parent="npc_manager" unique_id=69292397 instance=ExtResource("7_kagfw")]
+[node name="npc3" parent="npc_manager" unique_id=69292397 instance=ExtResource("6_3geyo")]
 position = Vector2(584, 192)
 npc_nickname = "Thomas"
-schedule = ExtResource("7_pt8fy")
+schedule = ExtResource("7_xhpov")
 npc_home_name = "resource"
 
-[node name="npc4" parent="npc_manager" unique_id=1649476680 instance=ExtResource("7_kagfw")]
+[node name="npc4" parent="npc_manager" unique_id=1649476680 instance=ExtResource("6_3geyo")]
 position = Vector2(560, 216)
 npc_nickname = "Ryan"
-schedule = ExtResource("7_pt8fy")
+schedule = ExtResource("7_xhpov")
 npc_home_name = "resource"
 
-[node name="npc5" parent="npc_manager" unique_id=1325617467 instance=ExtResource("7_kagfw")]
+[node name="npc5" parent="npc_manager" unique_id=1325617467 instance=ExtResource("6_3geyo")]
 position = Vector2(616, 216)
 npc_name = "lumberjack"
 npc_nickname = "Henry"
-npc_visual = ExtResource("8_tmsfx")
-schedule = ExtResource("9_qftnm")
+npc_visual = ExtResource("8_6rue1")
+schedule = ExtResource("9_icypt")
 npc_home_name = "resource"
 
-[node name="npc6" parent="npc_manager" unique_id=1311522898 instance=ExtResource("7_kagfw")]
+[node name="npc6" parent="npc_manager" unique_id=1311522898 instance=ExtResource("6_3geyo")]
 position = Vector2(952, 224)
 npc_name = "lumberjack"
 npc_nickname = "Jack"
-npc_visual = ExtResource("8_tmsfx")
-schedule = ExtResource("9_qftnm")
+npc_visual = ExtResource("8_6rue1")
+schedule = ExtResource("9_icypt")
 npc_home_name = "medium4"
 
-[node name="npc7" parent="npc_manager" unique_id=436344343 instance=ExtResource("7_kagfw")]
+[node name="npc7" parent="npc_manager" unique_id=436344343 instance=ExtResource("6_3geyo")]
 position = Vector2(928, 224)
 npc_name = "lumberjack"
 npc_nickname = "James"
-npc_visual = ExtResource("8_tmsfx")
-schedule = ExtResource("9_qftnm")
+npc_visual = ExtResource("8_6rue1")
+schedule = ExtResource("9_icypt")
 npc_home_name = "medium4"
 
-[node name="npc8" parent="npc_manager" unique_id=1325068148 instance=ExtResource("7_kagfw")]
+[node name="npc8" parent="npc_manager" unique_id=1325068148 instance=ExtResource("6_3geyo")]
 position = Vector2(976, 224)
 npc_name = "lumberjack"
 npc_nickname = "Albert"
-npc_visual = ExtResource("8_tmsfx")
-schedule = ExtResource("9_qftnm")
+npc_visual = ExtResource("8_6rue1")
+schedule = ExtResource("9_icypt")
 npc_home_name = "medium4"
 
-[node name="npc9" parent="npc_manager" unique_id=849634066 instance=ExtResource("7_kagfw")]
+[node name="npc9" parent="npc_manager" unique_id=849634066 instance=ExtResource("6_3geyo")]
 position = Vector2(800, -40)
 npc_name = "wizard"
 npc_nickname = "Joseph"
-npc_visual = ExtResource("10_5ya4c")
-schedule = ExtResource("11_0idh4")
+npc_visual = ExtResource("13_igsjw")
+schedule = ExtResource("14_pr7f2")
 npc_home_name = "wizard"
 
-[node name="ui" parent="." unique_id=1997515593 instance=ExtResource("7_h2jsw")]
+[node name="ui" parent="." unique_id=1997515593 instance=ExtResource("15_v2djf")]
 
-[node name="player" parent="." unique_id=510662281 instance=ExtResource("10_74v4g")]
+[node name="player" parent="." unique_id=510662281 instance=ExtResource("16_qn11p")]
 position = Vector2(312, 272)

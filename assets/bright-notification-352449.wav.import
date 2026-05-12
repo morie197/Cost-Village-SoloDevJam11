@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://3167fer0yhow"
-path="res://.godot/imported/bright-notification-352449.wav-c24eccda797df775b8166e653c078bd7.sample"
+path="res://.godot/imported/bright-notification-352449.wav-67e01d970f4865767469a090c9435fd4.sample"
 
 [deps]
 
-source_file="res://bright-notification-352449.wav"
-dest_files=["res://.godot/imported/bright-notification-352449.wav-c24eccda797df775b8166e653c078bd7.sample"]
+source_file="res://assets/bright-notification-352449.wav"
+dest_files=["res://.godot/imported/bright-notification-352449.wav-67e01d970f4865767469a090c9435fd4.sample"]
 
 [params]
 

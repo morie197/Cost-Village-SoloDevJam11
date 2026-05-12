@@ -1,16 +1,16 @@
 [gd_scene format=3 uid="uid://cbhk3tjl0jyai"]
 
 [ext_resource type="Texture2D" uid="uid://cudyrgkm4rksl" path="res://resources/gold.tres" id="1_fyqef"]
-[ext_resource type="Script" uid="uid://bhg8kxugo6q8x" path="res://ui_manager.gd" id="1_waa4j"]
+[ext_resource type="Script" uid="uid://bhg8kxugo6q8x" path="res://scripts/ui_manager.gd" id="1_waa4j"]
 [ext_resource type="Texture2D" uid="uid://dabn83w6gj4s5" path="res://resources/food.tres" id="2_n5ude"]
 [ext_resource type="Texture2D" uid="uid://dfikmr8evj6kv" path="res://resources/wood.tres" id="4_waa4j"]
 [ext_resource type="Texture2D" uid="uid://cjamx63makgut" path="res://resources/potions.tres" id="5_ok7cu"]
 [ext_resource type="Texture2D" uid="uid://uw8opxi75t4w" path="res://resources/tools.tres" id="6_irxef"]
-[ext_resource type="Script" uid="uid://c1gp3oj3hmkel" path="res://event_popup.gd" id="7_y4yjw"]
-[ext_resource type="Script" uid="uid://deuh65qt68yae" path="res://day_visuals.gd" id="8_waa4j"]
-[ext_resource type="AudioStream" uid="uid://cmaxtxb88lxie" path="res://Ambient 2.ogg" id="9_ok7cu"]
-[ext_resource type="AudioStream" uid="uid://3167fer0yhow" path="res://bright-notification-352449.wav" id="10_irxef"]
-[ext_resource type="AudioStream" uid="uid://eq1ucxyhwuj2" path="res://universfield-single-church-bell-2-352062.wav" id="11_e2l4f"]
+[ext_resource type="Script" uid="uid://c1gp3oj3hmkel" path="res://scripts/event_popup.gd" id="7_y4yjw"]
+[ext_resource type="Script" uid="uid://deuh65qt68yae" path="res://scripts/day_visuals.gd" id="8_waa4j"]
+[ext_resource type="AudioStream" uid="uid://cmaxtxb88lxie" path="res://assets/Ambient 2.ogg" id="9_ok7cu"]
+[ext_resource type="AudioStream" uid="uid://3167fer0yhow" path="res://assets/bright-notification-352449.wav" id="10_irxef"]
+[ext_resource type="AudioStream" uid="uid://eq1ucxyhwuj2" path="res://assets/universfield-single-church-bell-2-352062.wav" id="11_e2l4f"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fyqef"]
 content_margin_left = 0.0
