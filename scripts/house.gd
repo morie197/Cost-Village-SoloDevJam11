@@ -7,3 +7,4 @@ class_name House
 
 func _ready():
 	visible = false
+	location = global_position
