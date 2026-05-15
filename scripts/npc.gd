@@ -222,7 +222,7 @@ func _choose_new_activity() -> GameManager.npc_possible_activities:
 	return possible_activities[possible_activities.keys()[0]]
 		
 func _update_state_based_on_activity():
-	print("Chose activity: " + str(current_activity))
+	#print("Chose activity: " + str(current_activity))
 	match current_activity:
 		GameManager.npc_possible_activities.WANDERING:
 			_exit_state()
@@ -318,7 +318,7 @@ func _enter_state(state: GameManager.npc_possible_states):
 		GameManager.npc_possible_states.IDLE:
 			pass
 		GameManager.npc_possible_states.WANDER:
-			print("wandernew")
+			#print("wandernew")
 			var navmap = get_world_2d().get_navigation_map()
 			var wander_amount: Vector2 = (Vector2(randf_range(-1, 1), randf_range(-1, 1)) * wander_distance)
 			var potential_target: Vector2 = global_position + wander_amount

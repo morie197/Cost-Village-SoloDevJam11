@@ -290,6 +290,8 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_ok7cu")
 
 [node name="you_lost" type="PanelContainer" parent="." unique_id=2115603798]
 unique_name_in_owner = true
+visible = false
+z_index = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -325,6 +327,7 @@ text = "try again"
 
 [node name="you_win" type="PanelContainer" parent="." unique_id=1191517367]
 unique_name_in_owner = true
+visible = false
 z_index = 1
 anchors_preset = 15
 anchor_right = 1.0

@@ -136,7 +136,7 @@ func create_events():
 		
 		event_trigger_times[random_trigger_time] = {event_npcs[event]: random_event}
 		
-	print(event_trigger_times)
+	print(event_trigger_times.size())
 	
 
 func get_current_activities(schedule: Schedule) -> Dictionary:

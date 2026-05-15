@@ -116,12 +116,12 @@ func choose_random_event(trigger_npc: String) -> Dictionary:
 		return {}
 		
 	if not events[safety_level].has(trigger_npc):
-		print("No trigger for npc with: " + trigger_npc)
+		print("No trigger for npc with: " + trigger_npc + ", using generic trigger 'everyone'")
 		if events[safety_level].has("anyone"):
 			trigger_npc = "anyone"
 		else:
 			print("No trigger for any npcs")
-		return {}
+			return {}
 	
 	var chosen_event
 	
@@ -145,17 +145,16 @@ func choose_random_event(trigger_npc: String) -> Dictionary:
 	return {[safety_level, trigger_npc, chosen_event]: events[safety_level][trigger_npc][chosen_event]}
 	
 func get_event(trigger_npc: String) -> Array:
-	var role: String = trigger_npc
+	var role: String = get_raw_profession(trigger_npc)
 	if randi_range(0, 2) > 1:
 		role = "anyone"
 	
+	
 	var event = choose_random_event(role)
-	print(event)
 	if event == {}:
 		print("Not a valid event!")
 		return []
 	var event_keys = event.keys()
-	#print(event_keys[0])
 	if event_keys[0].size() < 3:
 		print("Not enough keys!")
 		return []
@@ -170,19 +169,25 @@ func get_event(trigger_npc: String) -> Array:
 	return event_keys[0]
 		
 func trigger_event(npc_cause: String, event: Array):
-	print("Cause: " + npc_cause)
-	print("Event data: " + str(event))
+	#print("Cause: " + npc_cause)
+	#print("Event data: " + str(event))
 	
 	if not GameManager.npc_manager.unique_npcs.has(npc_cause):
 		print("No npc with unique game: " + npc_cause)
 		return
 	GameManager.npc_manager.unique_npcs[npc_cause].trigger_event(event)
 	
+func get_raw_profession(profession: String) -> String:
+	var raw_profession: String = profession.rstrip("0123456789")
+	#var id_number: String = profession.erase(0, raw_profession.length())
+	return raw_profession
+	
 func get_raw_target_professions(professions, targets):
 	var target_data: Dictionary = {}
 	
 	for target_profession in professions:
-		var raw_profession: String = target_profession.rstrip("0123456789")
+		
+		var raw_profession: String = get_raw_profession(target_profession)
 		var id_number: String = target_profession.erase(0, raw_profession.length())
 		for target: String in targets:
 			match raw_profession:
