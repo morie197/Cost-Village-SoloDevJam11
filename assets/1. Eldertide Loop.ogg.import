@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dv2dsw8e632pe"
+path="res://.godot/imported/1. Eldertide Loop.ogg-5a8e5161f54c08ed7195d146e2cdd509.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/1. Eldertide Loop.ogg"
+dest_files=["res://.godot/imported/1. Eldertide Loop.ogg-5a8e5161f54c08ed7195d146e2cdd509.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

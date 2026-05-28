@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bvwspwts80o57"
+path="res://.godot/imported/2. Moonshadow Loop.ogg-ad82098f65cf8b7e7672fd12bf480ddb.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/2. Moonshadow Loop.ogg"
+dest_files=["res://.godot/imported/2. Moonshadow Loop.ogg-ad82098f65cf8b7e7672fd12bf480ddb.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
